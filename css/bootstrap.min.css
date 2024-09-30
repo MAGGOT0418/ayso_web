@@ -587,6 +587,7 @@ pre code {
 
 .container {
     width: 100%;
+    max-width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -6253,15 +6254,19 @@ button.close {
 
 .carousel {
     position: relative
+    w
 }
 
 .carousel-inner {
     position: relative;
     width: 100%;
+    max-height: 100vh;
     overflow: hidden
 }
 
 .carousel-item {
+    width: 100%;
+    height: 100%;
     position: relative;
     display: none;
     -ms-flex-align: center;
@@ -6483,9 +6488,10 @@ button.close {
 
 .carousel-caption {
     position: absolute;
-    right: 15%;
-    bottom: 20px;
-    left: 15%;
+    right: 0%;
+    bottom: 0px;
+    padding: 20px;
+    left: 0%;
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;

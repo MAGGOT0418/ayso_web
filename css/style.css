@@ -29,7 +29,9 @@
 @import url(css/nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
-
+.carousel {
+     width: 100%;
+}
 * {
      box-sizing: border-box !important;
 }
@@ -340,6 +342,10 @@ button {
 
 .banner_main {
      background: #f5f6f6;
+     width: 100%;
+     
+     margin: 0;
+     overflow: hidden;
      padding: 198px 0px 90px 0px;
 }
 
@@ -692,6 +698,13 @@ button {
 #myCarousel .carousel-indicators .active {
      background: #8c8a8a;
 }
+
+.carousel-item img {
+     width: 100%;   /* Las imágenes ocuparán el 100% del ancho del contenedor */
+     height: auto;  /* Mantén la proporción de la imagen para evitar distorsión */
+     max-width: 100%;
+     padding: 0;
+ }
 
 #myCarousel .carousel-control-prev,
 #myCarousel .carousel-control-next {
