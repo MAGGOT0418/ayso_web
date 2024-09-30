@@ -57,12 +57,7 @@ a {
      transition: all .3s ease-in-out;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
      letter-spacing: 0;
      font-weight: normal;
      position: relative;
@@ -257,8 +252,9 @@ button {
 
 .navigation.navbar {
      float: right;
-     background: #fff;
+     background: #00aeef;
      clear: both;
+     margin-top: 20px;
      padding: 23px 25px !important;
      border-radius: 64px;
 }
@@ -266,21 +262,21 @@ button {
 .navigation.navbar-dark .navbar-nav .nav-link {
      padding: 0 20px;
      color: #070404;
-     font-size: 17px;
+     font-size: 20px;
      line-height: 20px;
      font-weight: 500;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-     color: #03cafc;
+     color: #ffffff;
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
-     color: #03cafc;
+     color: #ffffff;
 }
 
 .navbar-expand-md .navbar-nav {
@@ -288,16 +284,17 @@ button {
 }
 
 .login_btn a {
-     background: #03cafc;
+     background: #ece6e6;
      padding: 9px 32px !important;
      display: inline;
      border-radius: 20px;
-     color: #fff !important;
+     color: #000000 !important;
      margin: 0 10px;
 }
 
 .login_btn a:hover {
      background: #000 !important;
+     color: #fff !important;
 }
 
 .sea_icon a {
@@ -313,10 +310,31 @@ button {
      border-top: #090102 solid 11px;
 }
 
-.logo {
-     padding-top: 14px;
-}
+.header .row {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ .header .col-xl-9 {
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .navbar-nav {
+     display: flex;
+     justify-content: center;
+     width: 100%;
+ }
 
+.logo {
+     padding-top: 0px;
+}
+.center-desk {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
 
 /** banner section **/
 
@@ -836,4 +854,8 @@ ul.location_icon li a {
 .position_head .glasses,
 .shop {
      margin-bottom: 90px;
+}
+
+.bod {
+     background-color: #f7f2f2;
 }
