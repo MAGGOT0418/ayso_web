@@ -36,6 +36,10 @@
      box-sizing: border-box !important;
 }
 
+.main-layout {
+     background-color: #345b7c;
+}
+
 html {
      scroll-behavior: smooth;
 }
@@ -461,7 +465,7 @@ button {
 }
 
 .about .about_img {
-     margin-left: -40px;
+     margin-left: 40px;
 }
 
 .about .titlepage::before {
