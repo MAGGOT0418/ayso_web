@@ -37,7 +37,7 @@
 }
 
 .main-layout {
-     background-color: #345b7c;
+     background-color: #ffffff;
 }
 
 html {
@@ -309,11 +309,11 @@ button {
 
 .header {
      width: 100%;
-     padding: 30px 30px;
+     
      background: transparent;
      position: absolute;
      z-index: 999;
-     border-top: #090102 solid 11px;
+     border-top: #090102 solid 0px;
 }
 
 .header .row {
@@ -345,12 +345,11 @@ button {
 /** banner section **/
 
 .banner_main {
-     background: #f5f6f6;
+     background-color: #e8eff1;
      width: 100%;
-     
-     margin: 0;
+     margin-bottom: 0;
      overflow: hidden;
-     padding: 198px 0px 90px 0px;
+     padding: 110px 0px 90px 0px;
 }
 
 .text-bg {
@@ -409,7 +408,7 @@ button {
 #banner1 a.carousel-control-prev {
      position: absolute;
      left: 20px;
-     bottom: 10px;
+     bottom: 0px;
 }
 
 #banner1 a.carousel-control-next {
@@ -460,8 +459,11 @@ button {
 /** about section **/
 
 .about {
+     
      border-bottom: #000 solid 1px;
-     padding: 130px 0 90px 0;
+     padding: 120px 0 90px 0;
+     
+     
 }
 
 .about .about_img {
@@ -722,7 +724,10 @@ button {
 /** contact section **/
 
 .contact {
-     margin-top: 90px;
+     padding-bottom: 90px;
+     padding-top: 90px;
+     background-color: #042431;
+     margin-bottom: -50px;
 }
 
 .contact .main_form h3 {
@@ -808,7 +813,8 @@ button {
 /** footer **/
 
 .footer {
-     background: #252525;
+     margin-top: 45px;
+     background-color: #345b7c;
      padding-top: 90px;
      text-align: center;
      font-family: 'Roboto', sans-serif;
@@ -838,6 +844,7 @@ ul.location_icon li a {
      margin-top: 80px;
      padding-bottom: 20px;
      background: #fbfdfd;
+     background-color: #345b7c;
 }
 
 .copyright p {
@@ -874,5 +881,9 @@ ul.location_icon li a {
 }
 
 .bod {
-     background-color: #f7f2f2;
+     background-color: #345b7c;
+}
+
+.perfil {
+     background-color: #345b7c;
 }
