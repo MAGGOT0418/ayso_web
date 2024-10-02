@@ -345,11 +345,11 @@ button {
 /** banner section **/
 
 .banner_main {
-     background-color: #e8eff1;
+     background-color: #c6ced0;
      width: 100%;
      margin-bottom: 0;
      overflow: hidden;
-     padding: 110px 0px 90px 0px;
+     padding: 110px 0px 0px 0px;
 }
 
 .text-bg {
@@ -710,6 +710,7 @@ button {
      height: auto;  /* Mantén la proporción de la imagen para evitar distorsión */
      max-width: 100%;
      padding: 0;
+     margin-top: 15px;
  }
 
 #myCarousel .carousel-control-prev,
@@ -815,7 +816,8 @@ button {
 .footer {
      margin-top: 45px;
      background-color: #345b7c;
-     padding-top: 90px;
+     padding-top: 60px;
+     padding-bottom: 60px;
      text-align: center;
      font-family: 'Roboto', sans-serif;
 }
