@@ -1,12 +1,10 @@
 /* General styles for the header */
 .header {
-    background-color: #03cafc;
-    /* Fondo oscuro */
+    background-color: #03cafc; /* Fondo oscuro */
     padding: 10px 0;
     position: relative;
     z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sombra */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
 .logo_section {
@@ -16,8 +14,7 @@
 }
 
 .logo img {
-    max-width: 150px;
-    /* Ajusta el tamaño del logo */
+    max-width: 150px; /* Ajusta el tamaño del logo */
 }
 
 /* Navbar styles */
@@ -29,10 +26,8 @@
 }
 
 .navbar-dark .navbar-toggler {
-    border-color: #fff;
-    /* Color del borde del botón en modo móvil */
+    border-color: #fff; /* Color del borde del botón en modo móvil */
 }
-
 .a {
     color: #ffffff;
 }
@@ -41,7 +36,7 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Styles for the navigation items */
+        /* Styles for the navigation items */
 .navbar-nav {
     display: flex;
     justify-content: flex-end;
@@ -51,7 +46,7 @@
 .navbar-nav .nav-item {
     margin-left: 20px;
     margin-bottom: -10px;
-
+    
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
@@ -64,24 +59,20 @@
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-    color: #f39c12;
-    /* Color al hacer hover */
+    color: #f39c12; /* Color al hacer hover */
 }
 
 .navbar-nav .nav-item .active .nav-link {
-    color: #000000;
-    /* Color para el link activo */
+    color: #000000; /* Color para el link activo */
 }
 
 /* Login/Register buttons */
 .login_btn .nav-link {
-    background-color: #f39c12;
-    /* Fondo naranja */
-    color: #720a0a;
-    /* Texto blanco */
+    background-color: #f39c12; /* Fondo naranja */
+    color: #720a0a; /* Texto blanco */
     padding: 8px 16px !important;
     border-radius: 20px;
-
+    
     transition: background-color 0.3s ease;
 }
 
@@ -102,28 +93,24 @@
     }
 
     .navbar-collapse {
-        background-color: #34495e;
-        /* Fondo oscuro en modo colapsado */
+        background-color: #34495e; /* Fondo oscuro en modo colapsado */
         padding: 20px;
         border-radius: 10px;
     }
 
     .login_btn .nav-link {
-        width: 100%;
-        /* Botones al 100% en móviles */
+        width: 100%; /* Botones al 100% en móviles */
         text-align: center;
     }
 }
 
 @media (max-width: 576px) {
     .logo img {
-        max-width: 120px;
-        /* Logo más pequeño en pantallas pequeñas */
+        max-width: 120px; /* Logo más pequeño en pantallas pequeñas */
     }
 
     .navbar-toggler {
-        margin-top: 20px;
-        /* Ajusta el margen superior del botón de colapso */
+        margin-top: 20px; /* Ajusta el margen superior del botón de colapso */
     }
 }
 
@@ -135,7 +122,6 @@
     overflow: hidden;
     padding: 0px 0px 0px 0px;
 }
-
 #banner1 .carousel-caption {
     position: inherit;
     padding: 0;
@@ -178,7 +164,6 @@
     right: 20px;
     bottom: 10px;
 }
-
 img {
     max-width: 100%;
     height: auto;
@@ -187,15 +172,14 @@ img {
 /*perfiles dentistas*/
 
 .about {
-
     border-bottom: #000 solid 1px;
-    padding: 120px 0 90px 0;
-
-
+    padding: 60px 20px; /* Reduce el padding para pantallas pequeñas */
+    max-width: 100vw; /* No permite que la sección exceda el ancho de la pantalla */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
 }
 
 .about .about_img {
-    margin-left: 40px;
+    margin-left: 20px; /* Reduce el margen para evitar que exceda el espacio */
 }
 
 .about .titlepage::before {
@@ -208,24 +192,27 @@ img {
     background-repeat: no-repeat;
     top: -27px;
     z-index: -1;
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
 }
 
 .about .about_img figure {
     margin: 0;
+    max-width: 100%; /* Ajusta la imagen al tamaño del contenedor */
 }
 
 .about .titlepage {
     border: #000 solid 1px;
-    padding: 40px 40px;
+    padding: 20px; /* Reduce el padding para pantallas pequeñas */
     z-index: 10018;
     background: #fff;
-    margin-right: 40px;
+    margin-right: 20px; /* Reduce el margen para evitar desbordamientos */
+    max-width: calc(100% - 40px); /* Ajusta el ancho máximo para que siempre entre en la pantalla */
 }
 
 .about .titlepage p {
     color: #2a2a2c;
     font-size: 17px;
-    line-height: 35px;
+    line-height: 1.5; /* Ajusta el interlineado para evitar demasiado espacio vertical */
     font-weight: 400;
     padding-top: 20px;
 }
@@ -234,90 +221,27 @@ img {
     border: #1a1a1a solid 2px;
     color: #1a1a1a;
     font-weight: 500;
-    margin-top: 44px;
+    margin-top: 20px; /* Reduce el margen superior para más control en pantallas pequeñas */
 }
 
-/** contact section **/
+/* Medias queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .about {
+        padding: 40px 10px; /* Reduce el padding en pantallas pequeñas */
+    }
+    
+    .about .about_img {
+        margin-left: 0;
+        text-align: center; /* Centra la imagen en pantallas pequeñas */
+    }
 
-.contact {
-    padding-bottom: 90px;
-    padding-top: 90px;
-    background-color: #042431;
-    margin-bottom: -50px;
-}
+    .about .titlepage {
+        margin-right: 0;
+        padding: 20px; /* Reduce el padding para que se vea mejor en pantallas pequeñas */
+        max-width: 100%;
+    }
 
-.contact .main_form h3 {
-    color: #4b4b4c;
-    font-size: 27px;
-    line-height: 30px;
-    text-align: center;
-    display: block;
-    font-weight: 600;
-    padding: 0;
-}
-
-#map {
-    height: 100%;
-    min-height: 732px;
-}
-
-.main_form {
-    position: absolute;
-    z-index: 999;
-    background: #fff;
-    padding: 40px 50px;
-    margin-top: 107px;
-}
-
-.main_form .contactus {
-    border-bottom: #111111 solid 1px;
-    margin-bottom: 25px;
-    width: 100%;
-    height: 57px;
-    background: transparent;
-    color: #4b4b4c;
-    font-size: 18px;
-    font-weight: normal;
-    border-top: inherit;
-    border-left: inherit;
-    border-right: inherit;
-}
-
-.main_form .contactusmess {
-    border-bottom: #111111 solid 1px;
-    margin-bottom: 25px;
-    width: 100%;
-    padding-top: 40px;
-    padding-bottom: 14px;
-    background: transparent;
-    color: #4b4b4c;
-    ;
-    font-size: 18px;
-    font-weight: normal;
-    border-top: inherit;
-    border-left: inherit;
-    border-right: inherit;
-}
-
-.send_btn {
-    background: #03cafc;
-    font-weight: 600;
-    font-size: 18px;
-    width: 100%;
-    color: #fff;
-    height: 50px;
-    border-radius: 30px;
-    margin-top: 20px;
-    transition: ease-in all 0.5s;
-    text-transform: uppercase;
-}
-
-.send_btn:hover {
-    background: #4b4b4c;
-    transition: ease-in all 0.5s;
-}
-
-#request *::placeholder {
-    color: #4b4b4c;
-    opacity: 1;
+    .about .titlepage::before {
+        display: none; /* Oculta el elemento decorativo si ocupa demasiado espacio en pantallas pequeñas */
+    }
 }
