@@ -1,10 +1,12 @@
 /* General styles for the header */
+/* Header adjustments for responsiveness */
 .header {
-    background-color: #03cafc; /* Fondo oscuro */
+    background-color: #03cafc;
     padding: 10px 0;
     position: relative;
     z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 100%; /* Full width for responsiveness */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo_section {
@@ -14,29 +16,32 @@
 }
 
 .logo img {
-    max-width: 150px; /* Ajusta el tamaño del logo */
+    max-width: 150px;
 }
 
 /* Navbar styles */
 .navigation {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Space between logo and button */
     align-items: center;
-    padding: 0;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    width: 100%; /* Full width */
 }
 
 .navbar-dark .navbar-toggler {
-    border-color: #fff; /* Color del borde del botón en modo móvil */
-}
-.a {
-    color: #ffffff;
+    border: none;
+    background-color: transparent;
+     /* Ensure the button stays on the right */
 }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-        /* Styles for the navigation items */
 .navbar-nav {
     display: flex;
     justify-content: flex-end;
@@ -44,43 +49,50 @@
 }
 
 .navbar-nav .nav-item {
-    margin-left: 20px;
-    margin-bottom: -10px;
-    
+    margin-left: 1.5rem;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
-    padding: 0 20px;
-    color: #070404;
-    font-size: 20px;
-    line-height: 20px;
+    padding: 0.5rem 2rem;
+    color: #333;
+    font-size: 2rem;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    color: #f39c12; /* Color al hacer hover */
+.nav-link {
+    font-size: 20px;
+    color: #000 !important;
 }
 
-.navbar-nav .nav-item .active .nav-link {
-    color: #000000; /* Color para el link activo */
+.nav-link:hover {
+    color: #03cafc !important;
 }
 
-/* Login/Register buttons */
-.login_btn .nav-link {
-    background-color: #f39c12; /* Fondo naranja */
-    color: #720a0a; /* Texto blanco */
-    padding: 8px 16px !important;
-    border-radius: 20px;
-    
-    transition: background-color 0.3s ease;
-}
-
-.login_btn .nav-link:hover {
-    background-color: #c56715;
+.active {
+    color: #ccc311;
 }
 
 /* Responsive styles */
+@media (max-width: 991px) {
+    .navigation {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar-nav {
         flex-direction: column;
@@ -93,26 +105,33 @@
     }
 
     .navbar-collapse {
-        background-color: #34495e; /* Fondo oscuro en modo colapsado */
+        background-color: #34495e;
         padding: 20px;
         border-radius: 10px;
     }
 
     .login_btn .nav-link {
-        width: 100%; /* Botones al 100% en móviles */
+        width: 100%;
         text-align: center;
     }
 }
 
 @media (max-width: 576px) {
     .logo img {
-        max-width: 120px; /* Logo más pequeño en pantallas pequeñas */
+        max-width: 120px;
     }
 
     .navbar-toggler {
-        margin-top: 20px; /* Ajusta el margen superior del botón de colapso */
+        width: 50%; 
+        margin-left: auto;/* Ensure it is always on the right */
+        margin-top: 10px;
+    }
+
+    .header {
+        padding: 5px 0;
     }
 }
+
 
 /*estilos banner*/
 .banner_main {
@@ -120,8 +139,31 @@
     width: 100%;
     margin-bottom: 0;
     overflow: hidden;
-    padding: 0px 0px 0px 0px;
+    padding: 0;
 }
+
+#banner1 {
+    position: relative;
+    width: 100%;
+}
+
+#banner1 .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#banner1 .carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#banner1 img {
+    width: 100%; /* Asegura que las imágenes llenen el contenedor */
+    height: auto;
+}
+
 #banner1 .carousel-caption {
     position: inherit;
     padding: 0;
@@ -141,7 +183,9 @@
     font-size: 30px;
     color: #131215;
     border-radius: 60px;
-    top: 43%;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajuste para centrar correctamente */
+    position: absolute; /* Asegura que estén en el mismo contenedor que las imágenes */
 }
 
 #banner1 .carousel-control-prev:hover,
@@ -154,32 +198,29 @@
 }
 
 #banner1 a.carousel-control-prev {
-    position: absolute;
-    left: 20px;
-    bottom: 0px;
+    left: 20px; /* Botón anterior a la izquierda */
 }
 
 #banner1 a.carousel-control-next {
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
+    right: 20px; /* Botón siguiente a la derecha */
 }
-img {
-    max-width: 100%;
-    height: auto;
-}
+
 
 /*perfiles dentistas*/
 
 .about {
     border-bottom: #000 solid 1px;
-    padding: 60px 20px; /* Reduce el padding para pantallas pequeñas */
-    max-width: 100vw; /* No permite que la sección exceda el ancho de la pantalla */
-    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
+    padding: 60px 20px;
+    /* Reduce el padding para pantallas pequeñas */
+    max-width: 100vw;
+    /* No permite que la sección exceda el ancho de la pantalla */
+    box-sizing: border-box;
+    /* Asegura que el padding se incluya en el ancho */
 }
 
 .about .about_img {
-    margin-left: 20px; /* Reduce el margen para evitar que exceda el espacio */
+    margin-left: 20px;
+    /* Reduce el margen para evitar que exceda el espacio */
 }
 
 .about .titlepage::before {
@@ -192,27 +233,33 @@ img {
     background-repeat: no-repeat;
     top: -27px;
     z-index: -1;
-    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el contenedor */
 }
 
 .about .about_img figure {
     margin: 0;
-    max-width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+    max-width: 100%;
+    /* Ajusta la imagen al tamaño del contenedor */
 }
 
 .about .titlepage {
     border: #000 solid 1px;
-    padding: 20px; /* Reduce el padding para pantallas pequeñas */
+    padding: 20px;
+    /* Reduce el padding para pantallas pequeñas */
     z-index: 10018;
     background: #fff;
-    margin-right: 20px; /* Reduce el margen para evitar desbordamientos */
-    max-width: calc(100% - 40px); /* Ajusta el ancho máximo para que siempre entre en la pantalla */
+    margin-right: 20px;
+    /* Reduce el margen para evitar desbordamientos */
+    max-width: calc(100% - 40px);
+    /* Ajusta el ancho máximo para que siempre entre en la pantalla */
 }
 
 .about .titlepage p {
     color: #2a2a2c;
     font-size: 17px;
-    line-height: 1.5; /* Ajusta el interlineado para evitar demasiado espacio vertical */
+    line-height: 1.5;
+    /* Ajusta el interlineado para evitar demasiado espacio vertical */
     font-weight: 400;
     padding-top: 20px;
 }
@@ -221,27 +268,159 @@ img {
     border: #1a1a1a solid 2px;
     color: #1a1a1a;
     font-weight: 500;
-    margin-top: 20px; /* Reduce el margen superior para más control en pantallas pequeñas */
+    margin-top: 20px;
+    /* Reduce el margen superior para más control en pantallas pequeñas */
 }
 
 /* Medias queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .about {
-        padding: 40px 10px; /* Reduce el padding en pantallas pequeñas */
+        padding: 40px 10px;
+        /* Reduce el padding en pantallas pequeñas */
     }
-    
+
     .about .about_img {
         margin-left: 0;
-        text-align: center; /* Centra la imagen en pantallas pequeñas */
+        text-align: center;
+        /* Centra la imagen en pantallas pequeñas */
     }
 
     .about .titlepage {
         margin-right: 0;
-        padding: 20px; /* Reduce el padding para que se vea mejor en pantallas pequeñas */
+        padding: 20px;
+        /* Reduce el padding para que se vea mejor en pantallas pequeñas */
         max-width: 100%;
     }
 
     .about .titlepage::before {
-        display: none; /* Oculta el elemento decorativo si ocupa demasiado espacio en pantallas pequeñas */
+        display: none;
+        /* Oculta el elemento decorativo si ocupa demasiado espacio en pantallas pequeñas */
     }
+}
+
+/*contacto*/
+
+.contact {
+    padding-bottom: 90px;
+    padding-top: 90px;
+    background-color: #042431;
+    margin-bottom: -50px;
+}
+
+.contact .main_form h3 {
+    color: #ffffff;
+    font-size: 27px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 600;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#map {
+    height: 100%;
+    min-height: 450px;
+    /* Ajuste de altura mínima para que coincida mejor con el formulario */
+}
+
+.main_form {
+    background: #fff;
+    padding: 40px 30px;
+    margin-top: 0;
+    /* Eliminamos el margen para alinear correctamente */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Añadimos sombra para darle profundidad */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+.main_form .contactus,
+.main_form .contactusmess {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    width: 100%;
+    background: transparent;
+    color: #4b4b4c;
+    font-size: 18px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    /* Bordes redondeados para inputs */
+    background-color: #f9f9f9;
+    /* Fondo claro para inputs */
+}
+
+.main_form .contactusmess {
+    height: 120px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    resize: none;
+    /* Deshabilitar el redimensionamiento de textarea */
+}
+
+.send_btn {
+    background: #03cafc;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    color: #fff;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: ease-in all 0.5s;
+    text-transform: uppercase;
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cambia el cursor a pointer */
+}
+
+.send_btn:hover {
+    background: #4b4b4c;
+    transition: ease-in all 0.5s;
+}
+
+#request *::placeholder {
+    color: #4b4b4c;
+    opacity: 1;
+}
+
+/* Ajustes para el iframe del mapa */
+.contact iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+    /* Bordes redondeados en el mapa */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Añadimos sombra para el mapa */
+}
+
+/*footer*/
+.footer {
+    margin-top: 45px;
+    background-color: #345b7c;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul.location_icon {
+    text-align: center;
+}
+
+ul.location_icon li {
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 0 40px;
+}
+
+ul.location_icon li a {
+    font-size: 40px;
+    color: #fff;
+    line-height: 30px;
+    display: block;
 }
