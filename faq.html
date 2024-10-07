@@ -1,40 +1,19 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
 
 <head>
-<<<<<<< Updated upstream
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- site metas -->
-    <title>sungla</title>
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
-    <!-- Scrollbar Custom CSS -->
-    <!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - Clínica Dental</title>
     <link rel="stylesheet" href="css/faq.css">
->>>>>>> Stashed changes
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- Barra de navegación -->
     <header>
-        <!-- header inner -->
         <div class="header">
             <div class="container-fluid">
                 <div class="row">
@@ -77,7 +56,6 @@
                                     <li class="nav-item d_none login_btn">
                                         <a class="nav-link" href="registro.html">Register</a>
                                     </li>
-
                                 </ul>
                             </div>
                         </nav>
@@ -87,10 +65,74 @@
         </div>
     </header>
 
-    <!-- jQuery -->
+    <!-- Contenido FAQ -->
+    <div class="dental-faq-container">
+        <svg class="dental-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#0077be"/>
+        </svg>
+        <h2 class="dental-faq-title">Preguntas Frecuentes</h2>
+
+        <div class="dental-faq-item">
+            <button class="dental-faq-question">¿Cuál es el horario de atención de la clínica dental?</button>
+            <div class="dental-faq-answer">
+                Nuestro horario de atención es de lunes a viernes, de 9:00 am a 7:00 pm, y los sábados de 9:00 am a 2:00 pm.
+            </div>
+        </div>
+
+        <div class="dental-faq-item">
+            <button class="dental-faq-question">¿Aceptan seguros dentales?</button>
+            <div class="dental-faq-answer">
+                Sí, aceptamos una amplia variedad de seguros dentales. Contáctenos para verificar su seguro específico.
+            </div>
+        </div>
+
+        <div class="dental-faq-item">
+            <button class="dental-faq-question">¿Cuánto tiempo dura una limpieza dental?</button>
+            <div class="dental-faq-answer">
+                Una limpieza dental estándar generalmente dura entre 30 y 60 minutos.
+            </div>
+        </div>
+
+        <div class="dental-faq-item">
+            <button class="dental-faq-question">¿Ofrecen servicios de blanqueamiento dental?</button>
+            <div class="dental-faq-answer">
+                Sí, ofrecemos servicios profesionales de blanqueamiento dental.
+            </div>
+        </div>
+
+        <div class="dental-faq-item">
+            <button class="dental-faq-question">¿Qué debo hacer en caso de una emergencia dental?</button>
+            <div class="dental-faq-answer">
+                En caso de emergencia dental, llámenos inmediatamente. Tenemos horarios reservados para emergencias.
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery y Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Script para funcionalidad de las preguntas -->
+    <script>
+        document.querySelectorAll('.dental-faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const answer = this.nextElementSibling;
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                } else {
+                    document.querySelectorAll('.dental-faq-answer').forEach(item => {
+                        item.style.display = "none";
+                    });
+                    document.querySelectorAll('.dental-faq-question').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    answer.style.display = "block";
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
