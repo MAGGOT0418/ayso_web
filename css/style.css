@@ -1,5 +1,5 @@
 /* General styles for the header */
-/* Header adjustments for responsiveness */
+/* Header  */
 .header {
     background-color: #03cafc;
     padding: 10px 0;
@@ -66,12 +66,15 @@
 }
 
 .nav-link:hover {
-    color: #03cafc !important;
+    color: #114fb4 !important;
 }
 
-.active {
-    color: #ccc311;
+/* Cambiar color del enlace activo en la navbar */
+.nav-link.active {
+    color: #03cafc !important; /* Cambia este valor por el color que desees */
+    font-weight: bold; /* para hacer el texto en negrita */
 }
+
 
 /* Responsive styles */
 @media (max-width: 991px) {
@@ -207,20 +210,18 @@
 
 
 /*perfiles dentistas*/
-
 .about {
     border-bottom: #000 solid 1px;
     padding: 60px 20px;
-    /* Reduce el padding para pantallas pequeñas */
-    max-width: 100vw;
-    /* No permite que la sección exceda el ancho de la pantalla */
-    box-sizing: border-box;
-    /* Asegura que el padding se incluya en el ancho */
+    width: 100%; /* Asegura que la sección ocupe todo el ancho */
+    max-width: 100vw; /* Asegura que no exceda el ancho de la pantalla */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
 }
 
 .about .about_img {
-    margin-left: 20px;
-    /* Reduce el margen para evitar que exceda el espacio */
+    margin-left: 0; /* Elimina el margen para evitar desbordamientos */
+    text-align: center; /* Centra la imagen si es necesario */
+    max-width: 100%; /* Asegura que no exceda el contenedor */
 }
 
 .about .titlepage::before {
@@ -233,33 +234,26 @@
     background-repeat: no-repeat;
     top: -27px;
     z-index: -1;
-    max-width: 100%;
-    /* Asegura que la imagen no exceda el contenedor */
-}
-
-.about .about_img figure {
-    margin: 0;
-    max-width: 100%;
-    /* Ajusta la imagen al tamaño del contenedor */
+    max-width: 100%; /* Asegura que la imagen decorativa no exceda el contenedor */
+    /* Ajuste adicional para pantallas pequeñas */
+    @media (max-width: 768px) {
+        display: none; /* Oculta el elemento decorativo en pantallas pequeñas */
+    }
 }
 
 .about .titlepage {
     border: #000 solid 1px;
     padding: 20px;
-    /* Reduce el padding para pantallas pequeñas */
     z-index: 10018;
     background: #fff;
-    margin-right: 20px;
-    /* Reduce el margen para evitar desbordamientos */
-    max-width: calc(100% - 40px);
-    /* Ajusta el ancho máximo para que siempre entre en la pantalla */
+    margin-right: 0; /* Elimina el margen derecho para evitar desbordamientos */
+    max-width: 100%; /* Asegura que la sección no se desborde */
 }
 
 .about .titlepage p {
     color: #2a2a2c;
     font-size: 17px;
     line-height: 1.5;
-    /* Ajusta el interlineado para evitar demasiado espacio vertical */
     font-weight: 400;
     padding-top: 20px;
 }
@@ -269,34 +263,30 @@
     color: #1a1a1a;
     font-weight: 500;
     margin-top: 20px;
-    /* Reduce el margen superior para más control en pantallas pequeñas */
 }
 
 /* Medias queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .about {
-        padding: 40px 10px;
-        /* Reduce el padding en pantallas pequeñas */
+        padding: 40px 10px; /* Reduce el padding en pantallas pequeñas */
     }
 
     .about .about_img {
-        margin-left: 0;
-        text-align: center;
-        /* Centra la imagen en pantallas pequeñas */
+        margin-left: 0; /* Elimina margen en pantallas pequeñas */
+        text-align: center; /* Centra la imagen en pantallas pequeñas */
     }
 
     .about .titlepage {
         margin-right: 0;
         padding: 20px;
-        /* Reduce el padding para que se vea mejor en pantallas pequeñas */
-        max-width: 100%;
+        max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
     }
 
     .about .titlepage::before {
-        display: none;
-        /* Oculta el elemento decorativo si ocupa demasiado espacio en pantallas pequeñas */
+        display: none; /* Oculta el elemento decorativo en pantallas pequeñas */
     }
 }
+
 
 /*contacto*/
 
@@ -423,4 +413,97 @@ ul.location_icon li a {
     color: #fff;
     line-height: 30px;
     display: block;
+}
+
+/*perfil*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.profile-header {
+    text-align: center;
+    background-color: #03cafc;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.profile-header p {
+    font-size: 1.2rem;
+}
+
+.profile-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+.profile-sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.profile-sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.profile-sidebar p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.profile-main {
+    width: 70%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.profile-main h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #114fb4;
+}
+
+.appointment-history, .medical-history {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.appointment-history li, .medical-history li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #03cafc;
+    border-radius: 5px;
+}
+
+.no-history {
+    color: #999;
+    font-style: italic;
 }
