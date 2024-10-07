@@ -5,6 +5,7 @@ body {
     padding: 20px;
     color: #333;
 }
+
 .dental-faq-container {
     max-width: 800px;
     margin: 40px auto;
@@ -13,6 +14,7 @@ body {
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .dental-faq-title {
     text-align: center;
     color: #0077be;
@@ -21,6 +23,7 @@ body {
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
+
 .dental-faq-item {
     margin-bottom: 20px;
     border: 1px solid #e0f0ff;
@@ -28,9 +31,11 @@ body {
     overflow: hidden;
     transition: all 0.3s ease;
 }
+
 .dental-faq-item:hover {
     box-shadow: 0 5px 15px rgba(0, 119, 190, 0.1);
 }
+
 .dental-faq-question {
     width: 100%;
     background-color: #f0f8ff;
@@ -46,17 +51,21 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .dental-faq-question:hover {
     background-color: #e0f0ff;
 }
+
 .dental-faq-question::after {
-    content: '\002B';
+    content: '\002B';  /* Símbolo de más (+) */
     font-size: 24px;
     transition: transform 0.3s ease;
 }
+
 .dental-faq-question.active::after {
-    transform: rotate(45deg);
+    transform: rotate(45deg);  /* Gira el símbolo de más en un símbolo de menos */
 }
+
 .dental-faq-answer {
     display: none;
     padding: 20px 25px;
@@ -66,23 +75,28 @@ body {
     line-height: 1.8;
     color: #444;
 }
+
 .dental-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
     display: block;
 }
+
 @media (max-width: 600px) {
     .dental-faq-container {
         padding: 20px;
     }
+
     .dental-faq-title {
         font-size: 24px;
     }
+
     .dental-faq-question {
         font-size: 16px;
         padding: 15px 20px;
     }
+
     .dental-faq-answer {
         font-size: 14px;
         padding: 15px 20px;
