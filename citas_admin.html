@@ -92,7 +92,41 @@
                     <div class="day-slot weekend"></div>
                     <div class="day-slot weekend"></div>
 
-                    <!-- ... (repeat for each hour until 19:00) ... -->
+                    <div class="time-slot">12:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+                    
+                    <div class="time-slot">1:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">2:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">succion - Marío</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">3:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment"> - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
 
                     <div class="time-slot">19:00</div>
                     <div class="day-slot"></div>
@@ -177,18 +211,6 @@
             });
         });
 
-            // Generar días para los mini calendarios
-            const miniCalendars = document.querySelectorAll('.mini-calendar-grid');
-            miniCalendars.forEach((calendar, index) => {
-                const daysInMonth = new Date(2024, index + 10, 0).getDate();
-                for (let i = 1; i <= daysInMonth; i++) {
-                    const dayEl = document.createElement('div');
-                    dayEl.className = 'mini-calendar-day';
-                    dayEl.textContent = i;
-                    if (i === 1) dayEl.classList.add('active');
-                    calendar.appendChild(dayEl);
-                }
-            });
     </script>
 </body>
 </html>

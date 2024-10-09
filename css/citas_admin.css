@@ -5,7 +5,7 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-    color: #666666;
+    color: #060606;
     font-size: 14px;
     line-height: 1.80857;
     font-weight: normal;
@@ -43,7 +43,7 @@ body {
     gap: 10px;
 }
 .btn {
-    background-color: #f0f0f0;
+    background-color: #f4f0f0;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -54,11 +54,11 @@ body {
     background-color: #e0e0e0;
 }
 .btn-primary {
-    background-color: #7e3af2;
+    background-color: #477de8;
     color: white;
 }
 .btn-primary:hover {
-    background-color: #6929c4;
+    background-color: #85a3dd;
 }
 .filters {
     display: flex;
@@ -87,7 +87,7 @@ select {
     transition: all .3s ease-in-out;
 }
 select:hover {
-    border-color: #7e3af2;
+    border-color: #477de8;
 }
 .calendar {
     background-color: white;
@@ -96,9 +96,14 @@ select:hover {
     overflow: hidden;
 }
 .calendar-header {
+    font-family: 'Poppins', sans-serif;
+    color: #fbfbfb;
+    font-size: 14px;
+    line-height: 1.80857;
+    font-weight: normal;
     display: grid;
     grid-template-columns: 80px repeat(7, 1fr);
-    background-color: #f8f8f8;
+    background-color: #477de8;
     border-bottom: 1px solid #ddd;
 }
 .calendar-header div {
@@ -124,7 +129,7 @@ select:hover {
     background-color: #f8f8f8;
 }
 .appointment {
-    background-color: #7e3af2;
+    background-color: #477de8;
     color: white;
     padding: 5px;
     margin: 2px;
@@ -159,12 +164,12 @@ select:hover {
     border-radius: 50%;
 }
 .mini-calendar-day.active {
-    background-color: #7e3af2;
+    background-color: #477de8;
     color: white;
     border-radius: 50%;
 }
 .mini-calendar-weekday {
     text-align: center;
     font-weight: 500;
-    color: #999;
+    color: #477de8;
 }

@@ -6,7 +6,6 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <!-- mobile metas -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
    <title>AYSO</title>
    <!-- bootstrap css -->
@@ -20,11 +19,10 @@
    <!-- Scrollbar Custom CSS -->
    <!-- Tweaks for older IEs-->
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <link rel="stylesheet" href="css/registrar_cita.css">
    <!-- Bootstrap CSS -->
-
 </head>
 <!-- body -->
-
 <body>
    <!-- end loader -->
    <!-- header -->
@@ -42,10 +40,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                     <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                     <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link active" href="citas.html">Citas</a>
+                     <a class="nav-link" href="citas.html">Citas</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="servicios.html">Servicios</a>
@@ -65,6 +63,29 @@
          </nav>
       </div>
    </header>
+   <!-- Registrar Cita -->
+   <div class="container">
+      <h2>Registrar Cita</h2>
+      <form action="registrar_cita.php" method="post">
+         <input type="hidden" name="id_paciente" value="<?php echo $_SESSION['id_paciente']; ?>">
+         <div class="form-group">
+            <label for="id_servicio">ID Servicio:</label>
+            <input type="number" class="form-control" id="id_servicio" name="id_servicio" required>
+         </div>
+         <div class="form-group">
+            <label for="fecha_cita">Fecha y Hora de la Cita:</label>
+            <input type="datetime-local" class="form-control" id="fecha_cita" name="fecha_cita" required>
+         </div>
+         <div class="form-group">
+            <label for="comentarios">Comentarios:</label>
+            <textarea class="form-control" id="comentarios" name="comentarios"></textarea>
+         </div>
+         <button type="submit" class="btn btn-primary">Registrar Cita</button>
+      </form>
+   </div>
+
+
+   
 
    <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
