@@ -20,7 +20,6 @@
    <!-- Tweaks for older IEs-->
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
    <!-- Bootstrap CSS -->
-   
 </head>
 <!-- body -->
 
@@ -28,12 +27,16 @@
    <!-- end loader -->
    <!-- header -->
    <header class="header">
-      <div class="container">
-         <!-- Agrega la clase "navigation" a la barra de navegación -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light navigation">
-            <a class="navbar-brand" href="index.html">
-               <img src="images/logo.png" alt="Logo de la empresa" width="150" height="50">
+      <div class="container d-flex justify-content-between align-items-center">
+         <!-- Sección del logo fuera de la navbar -->
+         <div class="logo_section">
+            <a href="index.html">
+               <img src="images/LogoC.png" alt="Logo de la empresa" width="180" height="85">
             </a>
+         </div>
+   
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light navigation">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
@@ -67,42 +70,42 @@
    <div class="profile-header">
       <h1>Perfil de Adrián Rivera</h1>
       <p>Bienvenido a tu perfil en el Consultorio Dental</p>
-  </div>
+   </div>
 
-  <div class="profile-content">
+   <div class="profile-content">
       <!-- Sidebar de información básica -->
       <div class="profile-sidebar">
-          <h2>Información Personal</h2>
-          <p><strong>Nombre:</strong> Adrián Estefano Rivera Bermúdez</p>
-          <p><strong>Email:</strong> adrian.rivera@example.com</p>
-          <p><strong>Teléfono:</strong> +52 123 456 7890</p>
+         <h2>Información Personal</h2>
+         <p><strong>Nombre:</strong> Adrián Estefano Rivera Bermúdez</p>
+         <p><strong>Email:</strong> adrian.rivera@example.com</p>
+         <p><strong>Teléfono:</strong> +52 123 456 7890</p>
       </div>
 
       <!-- Sección principal de contenido -->
       <div class="profile-main">
-          <!-- Historial Médico -->
-          <div class="profile-section">
-              <h2>Historial Médico</h2>
-              <ul class="medical-history">
-                  <li>Tratamiento de ortodoncia - Iniciado el 15/03/2023</li>
-                  <li>Limpieza dental - 20/01/2023</li>
-                  <!-- Si no hay historial médico -->
-                  <li class="no-history">No hay historial médico registrado.</li>
-              </ul>
-          </div>
+         <!-- Historial Médico -->
+         <div class="profile-section">
+            <h2>Historial Médico</h2>
+            <ul class="medical-history">
+               <li>Tratamiento de ortodoncia - Iniciado el 15/03/2023</li>
+               <li>Limpieza dental - 20/01/2023</li>
+               <!-- Si no hay historial médico -->
+               <li class="no-history">No hay historial médico registrado.</li>
+            </ul>
+         </div>
 
-          <!-- Historial de Citas -->
-          <div class="profile-section">
-              <h2>Historial de Citas</h2>
-              <ul class="appointment-history">
-                  <li>Cita con Dr. Pérez - 15/08/2024 - Realizada</li>
-                  <li>Cita con Dr. López - 01/06/2024 - Realizada</li>
-                  <!-- Si no hay citas anteriores -->
-                  <li class="no-history">No tienes citas anteriores registradas.</li>
-              </ul>
-          </div>
+         <!-- Historial de Citas -->
+         <div class="profile-section">
+            <h2>Historial de Citas</h2>
+            <ul class="appointment-history">
+               <li>Cita con Dr. Pérez - 15/08/2024 - Realizada</li>
+               <li>Cita con Dr. López - 01/06/2024 - Realizada</li>
+               <!-- Si no hay citas anteriores -->
+               <li class="no-history">No tienes citas anteriores registradas.</li>
+            </ul>
+         </div>
       </div>
-  </div>
+   </div>
 
    <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
