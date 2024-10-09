@@ -12,35 +12,32 @@
 .logo_section {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.logo img {
+.logo_section img {
     max-width: 150px;
+    height: auto;
 }
 
-/* Navbar styles */
 .navigation {
     display: flex;
-    justify-content: space-between; /* Space between logo and button */
+    justify-content: space-between; /* Distribuye espacio entre logo y navbar */
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem; /* Eliminar el padding de los lados */
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border-radius: 50px;
-    width: 100%; /* Full width */
+    width: auto;
 }
 
-.navbar-dark .navbar-toggler {
-    border: none;
-    background-color: transparent;
-     /* Ensure the button stays on the right */
+.header .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0; /* Evitar espacio extra a la izquierda */
 }
 
-.navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
 
 .navbar-nav {
     display: flex;
@@ -52,12 +49,13 @@
     margin-left: 1.5rem;
 }
 
-.navigation.navbar-dark .navbar-nav .nav-link {
-    padding: 0.5rem 2rem;
-    color: #333;
-    font-size: 2rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.navbar-dark .navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .nav-link {
@@ -69,12 +67,10 @@
     color: #114fb4 !important;
 }
 
-/* Cambiar color del enlace activo en la navbar */
 .nav-link.active {
-    color: #03cafc !important; /* Cambia este valor por el color que desees */
-    font-weight: bold; /* para hacer el texto en negrita */
+    color: #03cafc !important;
+    font-weight: bold;
 }
-
 
 /* Responsive styles */
 @media (max-width: 991px) {
@@ -120,13 +116,13 @@
 }
 
 @media (max-width: 576px) {
-    .logo img {
+    .logo_section img {
         max-width: 120px;
     }
 
     .navbar-toggler {
         width: 50%; 
-        margin-left: auto;/* Ensure it is always on the right */
+        margin-left: auto;
         margin-top: 10px;
     }
 
@@ -134,6 +130,7 @@
         padding: 5px 0;
     }
 }
+
 
 
 /*estilos banner*/
