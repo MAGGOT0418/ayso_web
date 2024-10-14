@@ -2,18 +2,26 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body, html {
+  width: 100%;
+  overflow-x: hidden; 
+}
+
 .services-page {
   font-family: 'Poppins', sans-serif;
+  padding: 0 20px; 
 }
 
 .services-page h1 {
   text-align: center;
   font-size: 32px;
-  margin-bottom: 30px;
+  margin: 50px 0 30px 0; 
   font-weight: 500;
   color: #001c35;
 }
@@ -35,7 +43,7 @@
   background-color: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 16px;
-  margin-bottom: 30px;
+  margin: 15px; 
   transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
   animation: fade-in linear both;
   height: 280px;
@@ -62,20 +70,20 @@
 .services-page p {
   text-align: justify;
   font-size: 14px;
-  margin-top: 15px; /* Espacio entre la imagen y el texto */
+  margin-top: 15px; 
   color: #001c35;
   opacity: 0;
   visibility: hidden;
   max-height: 0;
   transition: opacity 0.4s ease-in-out, max-height 0.4s ease-in-out;
   overflow: hidden;
-  padding: 0 10px; /* Añadimos algo de padding para mayor legibilidad */
+  padding: 0 10px; 
 }
 
 .services-page .card img {
   width: 100%;
   height: auto;
-  max-height: 180px; /* Tamaño más grande para la imagen */
+  max-height: 180px; 
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -83,13 +91,13 @@
 }
 
 .services-page .card:hover img {
-  transform: scale(1.1); /* Efecto de zoom en la imagen */
+  transform: scale(1.1);
 }
 
 .services-page .card:hover p {
   opacity: 1;
   visibility: visible;
-  max-height: 250px; /* Muestra más espacio para la descripción */
+  max-height: 250px; 
 }
 
 @media (max-width: 768px) {
@@ -111,10 +119,4 @@
   margin-bottom: 50px;
 }
 
-
-
-.services-page section {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
