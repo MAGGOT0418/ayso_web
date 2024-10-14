@@ -8,7 +8,6 @@
 
 .services-page {
   font-family: 'Poppins', sans-serif;
-  background-color: #f0f8ff;
 }
 
 .services-page h1 {
@@ -106,6 +105,13 @@
     max-width: 100%;
   }
 }
+
+.services-page section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
 
 .services-page section {
   margin-top: 50px;
