@@ -13,6 +13,7 @@
 .navbar-custom .nav-link {
     color: rgb(255, 255, 255);
     font-size: 21px;
+    
 }
 
 .navbar-custom .nav-link:hover {
@@ -29,7 +30,7 @@
     border-radius: 10px;
 }
 
-/*cards denristas*/
+/*cards dentistas*/
 .doctor-profiles {
     padding: 60px 0;
 }

@@ -12,15 +12,13 @@
     <link rel="stylesheet" href="css/registrar_cita.css">
 </head>
 
-
-
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.html" style="color: #fff;">
                 <img src="images/LogoC.png" alt="Logo" style="width: 140px; height: 70px; margin-left: -30px;">
-                Arte Y Salud Oral
+                Arte y salud oral
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +49,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="registrar-cita-container">
         <h2 class="text-center mb-4">Registrar Cita</h2>
         <form action="registrar_cita.php" method="post">
@@ -124,18 +122,19 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             flatpickr("#fecha_cita", {
                 dateFormat: "Y-m-d",
                 minDate: "today",
                 inline: true,
                 locale: "es",
-                onChange: function(selectedDates, dateStr, instance) {
+                onChange: function (selectedDates, dateStr, instance) {
                     console.log("Fecha seleccionada:", dateStr);
                 }
             });
         });
     </script>
+
 </body>
 
 </html>
