@@ -3,214 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
+    <title>Panel de Administración de Citas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/citas_admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="main-content">
-            <header class="header">
-                <div class="nav-icons">
-                    <span>☰</span>
-                    <span>◻</span>
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-md-8 ms-sm-auto px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Calendario de Citas</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Semana</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Mes</button>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-primary">
+                            <i class="fas fa-plus"></i> Nueva Cita
+                        </button>
+                    </div>
                 </div>
-                <div class="date-nav">
-                    <button class="btn">Semana</button>
-                    <span>◀</span>
-                    <span>Lunes, 30 de septiembre de 2024 - Domingo, 06 de octubre de 2024</span>
-                    <span>▶</span>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <select class="form-select" id="selectLocal">
+                            <option selected>Seleccionar Local</option>
+                            <option value="1">Local 1</option>
+                            <option value="2">Local 2</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="selectProfesional">
+                            <option selected>Seleccionar Profesional</option>
+                            <option value="1">Dr. García</option>
+                            <option value="2">Dra. Martínez</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="selectEstado">
+                            <option selected>Estado de Reserva</option>
+                            <option value="1">Activas</option>
+                            <option value="2">Canceladas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar cita...">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="actions">
-                    <span>🔄</span>
-                    <span>🔍</span>
-                    <span>📅</span>
-                    <span>🖨️</span>
-                    <button class="btn btn-primary">Nuevo ▼</button>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miércoles</th>
+                                <th>Jueves</th>
+                                <th>Viernes</th>
+                                <th>Sábado</th>
+                                <th>Domingo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarBody">
+                            <!-- Las filas del calendario se generarán dinámicamente con JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
-            </header>
-
-            <div class="filters">
-                <div class="select-wrapper">
-                    <select>
-                        <option>Local 1</option>
-                    </select>
+            </main>
+            <aside class="col-md-4">
+                <div class="calendar-container mt-4">
+                    <div id="calendar"></div>
                 </div>
-                <div class="select-wrapper">
-                    <select>
-                        <option>Profesional</option>
-                    </select>
-                </div>
-                <div class="select-wrapper">
-                    <select>
-                        <option>gabriel</option>
-                    </select>
-                </div>
-                <div class="select-wrapper">
-                    <select>
-                        <option>Reservas activas</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="calendar">
-                <div class="calendar-header">
-                    <div></div>
-                    <div>Lunes 30/09</div>
-                    <div>Martes 01/10</div>
-                    <div>Miércoles 02/10</div>
-                    <div>Jueves 03/10</div>
-                    <div>Viernes 04/10</div>
-                    <div>Sábado 05/10</div>
-                    <div>Domingo 06/10</div>
-                </div>
-                <div class="calendar-body">
-                    <!-- Generating time slots from 09:00 to 19:00 -->
-                    <div class="time-slot">09:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">10:00</div>
-                    <div class="day-slot"><div class="appointment">Consulta - Juan</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">11:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">12:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-                    
-                    <div class="time-slot">1:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">2:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"><div class="appointment">succion - Marío</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">3:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"><div class="appointment"> - María</div></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-
-                    <div class="time-slot">19:00</div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot"></div>
-                    <div class="day-slot weekend"></div>
-                    <div class="day-slot weekend"></div>
-                </div>
-            </div>
-        </div>
-        <div class="sidebar">
-            <div class="mini-calendar">
-                <div class="mini-calendar-header">
-                    <span>◀</span>
-                    <h3>Octubre 2024</h3>
-                    <span>▶</span>
-                </div>
-                <div class="mini-calendar-grid">
-                    <div class="mini-calendar-weekday">L</div>
-                    <div class="mini-calendar-weekday">M</div>
-                    <div class="mini-calendar-weekday">X</div>
-                    <div class="mini-calendar-weekday">J</div>
-                    <div class="mini-calendar-weekday">V</div>
-                    <div class="mini-calendar-weekday">S</div>
-                    <div class="mini-calendar-weekday">D</div>
-                    <!-- Días del mes -->
-                </div>
-            </div>
-            <div class="mini-calendar">
-                <div class="mini-calendar-header">
-                    <span>◀</span>
-                    <h3>Noviembre 2024</h3>
-                    <span>▶</span>
-                </div>
-                <div class="mini-calendar-grid">
-                    <div class="mini-calendar-weekday">L</div>
-                    <div class="mini-calendar-weekday">M</div>
-                    <div class="mini-calendar-weekday">X</div>
-                    <div class="mini-calendar-weekday">J</div>
-                    <div class="mini-calendar-weekday">V</div>
-                    <div class="mini-calendar-weekday">S</div>
-                    <div class="mini-calendar-weekday">D</div>
-                    <!-- Días del mes -->
-                </div>
-            </div>
+            </aside>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Llamada AJAX para obtener las citas desde la base de datos
+            const calendarBody = document.getElementById('calendarBody');
+            const hours = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
+            hours.forEach(hour => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${hour}</td>${'<td></td>'.repeat(7)}`;
+                calendarBody.appendChild(row);
+            });
             fetch('recibir_citas.php')
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(appointment => {
-                        const dayIndex = new Date(appointment.fecha_cita).getDay();
-                        const timeSlot = appointment.fecha_cita.split(' ')[1].split(':')[0];
-                        const daySlot = document.querySelector(`.calendar-body .day-slot:nth-child(${dayIndex + 1})`);
-                        if (daySlot) {
+                        const date = new Date(appointment.fecha_cita);
+                        const dayIndex = date.getDay();
+                        const hour = date.getHours();
+                        const rowIndex = hour - 9; // Asumiendo que el día comienza a las 9:00
+                        if (rowIndex >= 0 && rowIndex < hours.length) {
+                            const cell = calendarBody.rows[rowIndex].cells[dayIndex];
                             const appointmentEl = document.createElement('div');
                             appointmentEl.className = 'appointment';
                             appointmentEl.textContent = `${appointment.nombre_servicio} - ${appointment.nombre}`;
-                            daySlot.appendChild(appointmentEl);
+                            cell.appendChild(appointmentEl);
                         }
                     });
                 })
-                .catch(error => console.error('Error fetching data:', error));
-    
-            // Generar días para los mini calendarios
-            const miniCalendars = document.querySelectorAll('.mini-calendar-grid');
-            miniCalendars.forEach((calendar, index) => {
-                const daysInMonth = new Date(2024, index + 10, 0).getDate();
-                for (let i = 1; i <= daysInMonth; i++) {
-                    const dayEl = document.createElement('div');
-                    dayEl.className = 'mini-calendar-day';
-                    dayEl.textContent = i;
-                    if (i === 1) dayEl.classList.add('active');
-                    calendar.appendChild(dayEl);
-                }
+                .catch(error => console.error('Error al cargar las citas:', error));
+
+            flatpickr("#calendar", {
+                inline: true,
+                mode: "multiple",
+                dateFormat: "Y-m-d"
             });
         });
-
     </script>
 </body>
 </html>
