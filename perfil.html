@@ -1,19 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Perfil - Clínica Dental</title>
-   <link rel="stylesheet" href="css/style.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Arte y Salud Oral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #03cafc;
+            --primary-dark: #0297bd;
+            --secondary-color: #f8f9fa;
+        }
+        body {
+            background-color: #f0f2f5;
+        }
+        
+        .profile-header-container {
+            background-color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(3, 202, 252, 0.3);
+            margin-right: 2rem;
+        }
+        .profile-info {
+            text-align: left;
+        }
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        .profile-welcome {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .profile-content {
+            margin-bottom: 2rem;
+        }
+        .profile-sidebar, .profile-main {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            height: 100%;
+        }
+        .profile-section {
+            margin-bottom: 2rem;
+        }
+        .medical-history,
+        .appointment-history {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .medical-history li,
+        .appointment-history li {
+            margin-bottom: 0.5rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .medical-history li:hover,
+        .appointment-history li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .no-history {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+    </style>
 </head>
-
 <body>
    <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container">
-         <a class="navbar-brand" href="index.html" style="color: #fff;">
+         <a class="navbar-brand" href="index.html">
             <img src="images/LogoC.png" alt="Logo" style="width: 140px; height: 70px; margin-left: -30px;">
             Arte y salud oral
          </a>
@@ -47,39 +125,64 @@
    </nav>
 
    <div class="profile-header-container">
-      <div class="profile-header text-center">
-          <h1>Perfil de Adrián Rivera</h1>
-          <p>Bienvenido a tu perfil en el Consultorio Dental</p>
+      <div class="container">
+          <div class="profile-header">
+              <img src="https://via.placeholder.com/180" alt="Adrián Rivera" class="profile-avatar">
+              <div class="profile-info">
+                  <h1 class="profile-name">Adrián Rivera</h1>
+                  <p class="profile-welcome">Bienvenido a tu perfil en Arte y Salud Oral</p>
+              </div>
+          </div>
       </div>
-  </div>
-  
+   </div>
 
    <div class="container profile-content">
       <div class="row">
          <div class="col-md-4 mb-4">
             <div class="profile-sidebar">
-               <h2 class="h4 mb-3">Información Personal</h2>
-               <p><strong>Nombre:</strong> Adrián Estefano Rivera Bermúdez</p>
-               <p><strong>Email:</strong> adrian.rivera@example.com</p>
-               <p><strong>Teléfono:</strong> +52 123 456 7890</p>
+               <h2 class="h4 mb-4">Información Personal</h2>
+               <p><i class="fas fa-user me-2"></i> <strong>Nombre:</strong> Adrián Estefano Rivera Bermúdez</p>
+               <p><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> adrian.rivera@example.com</p>
+               <p><i class="fas fa-phone me-2"></i> <strong>Teléfono:</strong> +52 123 456 7890</p>
+               <hr>
+               <h3 class="h5 mb-3">Próxima Cita</h3>
+               <p><i class="far fa-calendar-alt me-2"></i> 15 de Agosto, 2024</p>
+               <p><i class="far fa-clock me-2"></i> 10:00 AM</p>
+               <p><i class="fas fa-user-md me-2"></i> Dr. Pérez</p>
             </div>
          </div>
          <div class="col-md-8">
             <div class="profile-main">
                <div class="profile-section">
-                  <h2 class="h4 mb-3">Historial Médico</h2>
+                  <h2 class="h4 mb-4">Historial Médico</h2>
                   <ul class="medical-history">
-                     <li>Tratamiento de ortodoncia - Iniciado el 15/03/2023</li>
-                     <li>Limpieza dental - 20/01/2023</li>
-                     
+                     <li><i class="fas fa-tooth me-2"></i> Tratamiento de ortodoncia - Iniciado el 15/03/2023</li>
+                     <li><i class="fas fa-brush me-2"></i> Limpieza dental - 20/01/2023</li>
                   </ul>
                </div>
                <div class="profile-section">
-                  <h2 class="h4 mb-3">Historial de Citas</h2>
+                  <h2 class="h4 mb-4">Historial de Citas</h2>
                   <ul class="appointment-history">
-                     <li>Cita con Dr. Pérez - 15/08/2024 - Realizada</li>
-                     <li>Cita con Dr. López - 01/06/2024 - Realizada</li>
-                     
+                     <li>
+                        <div class="d-flex justify-content-between align-items-center">
+                           <div>
+                              <i class="far fa-calendar-check me-2"></i> Cita con Dr. Pérez
+                              <br>
+                              <small class="text-muted">15/08/2024</small>
+                           </div>
+                           <span class="badge bg-success">Realizada</span>
+                        </div>
+                     </li>
+                     <li>
+                        <div class="d-flex justify-content-between align-items-center">
+                           <div>
+                              <i class="far fa-calendar-check me-2"></i> Cita con Dr. López
+                              <br>
+                              <small class="text-muted">01/06/2024</small>
+                           </div>
+                           <span class="badge bg-success">Realizada</span>
+                        </div>
+                     </li>
                   </ul>
                </div>
             </div>
@@ -93,15 +196,15 @@
             <div class="col-md-8 offset-md-2">
                <ul class="list-unstyled d-flex justify-content-around location_icon">
                   <li class="text-center">
-                     <a href="#"><i class="fa fa-map-marker-alt fa-2x" aria-hidden="true"></i><br>
+                     <a href="#"><i class="fa fa-map-marker-alt fa-2x mb-2" aria-hidden="true"></i><br>
                         <span>Ubicación</span></a>
                   </li>
                   <li class="text-center">
-                     <a href="#"><i class="fa fa-phone fa-2x" aria-hidden="true"></i><br>
+                     <a href="#"><i class="fa fa-phone fa-2x mb-2" aria-hidden="true"></i><br>
                         <span>+52 123 456 7890</span></a>
                   </li>
                   <li class="text-center">
-                     <a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i><br>
+                     <a href="#"><i class="fa fa-envelope fa-2x mb-2" aria-hidden="true"></i><br>
                         <span>contacto@artesaludoral.com</span></a>
                   </li>
                </ul>
@@ -112,5 +215,4 @@
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

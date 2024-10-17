@@ -2,8 +2,14 @@ body {
     background-color: #f7f7f7;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+}
+.content-wrapper {
+    flex: 1 0 auto;
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 0;
 }
 .custom-container {
     background-color: white;
