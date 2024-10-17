@@ -1,25 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Paciente</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Registrar Paciente - Historial Médico</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/historial.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: #fff;">
+                <img src="images/LogoC.png" alt="Logo" style="width: 140px; height: 70px; margin-left: -30px;">
+                Arte y salud oral
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="registro_pacientes.html">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="citas_admin.html">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="btn btn-outline-light me-2" href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <h2>Registrar Paciente</h2>
-        <form action="registro_paciente.php" method="post">
-            <div class="form-group">
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2>Registrar Paciente - Historial Médico</h2>
+                    <form action="registro_paciente.php" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre completo:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección:</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="telefono" class="form-label">Teléfono:</label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Correo electrónico:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="motivo_consulta" class="form-label">Motivo de la consulta:</label>
+                            <textarea class="form-control" id="motivo_consulta" name="motivo_consulta" rows="3"
+                                required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">¿Está bajo tratamiento médico actualmente?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tratamiento_medico"
+                                    id="tratamiento_si" value="si" required>
+                                <label class="form-check-label" for="tratamiento_si">Sí</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tratamiento_medico"
+                                    id="tratamiento_no" value="no" required>
+                                <label class="form-check-label" for="tratamiento_no">No</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="medicamentos" class="form-label">Medicamentos que toma actualmente:</label>
+                            <textarea class="form-control" id="medicamentos" name="medicamentos" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">¿Es alérgico a algún medicamento?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="alergias" id="alergias_si" value="si"
+                                    required>
+                                <label class="form-check-label" for="alergias_si">Sí</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="alergias" id="alergias_no" value="no"
+                                    required>
+                                <label class="form-check-label" for="alergias_no">No</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alergias_detalle" class="form-label">Si es alérgico, especifique:</label>
+                            <input type="text" class="form-control" id="alergias_detalle" name="alergias_detalle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Condiciones médicas:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hipertension" name="condiciones[]"
+                                    value="hipertension">
+                                <label class="form-check-label" for="hipertension">Hipertensión</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="diabetes" name="condiciones[]"
+                                    value="diabetes">
+                                <label class="form-check-label" for="diabetes">Diabetes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="problemas_cardiacos"
+                                    name="condiciones[]" value="problemas_cardiacos">
+                                <label class="form-check-label" for="problemas_cardiacos">Problemas cardíacos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="otros" name="condiciones[]"
+                                    value="otros">
+                                <label class="form-check-label" for="otros">Otros</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="otras_condiciones" class="form-label">Especifique otras condiciones
+                                médicas:</label>
+                            <textarea class="form-control" id="otras_condiciones" name="otras_condiciones"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Registrar Paciente</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="direccion">Dirección:</label>
-                <input type="text" class="form-control" id="direccion" name="direccion" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar Paciente</button>
-        </form>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
