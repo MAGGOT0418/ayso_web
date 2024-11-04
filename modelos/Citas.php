@@ -27,6 +27,12 @@ class Citas {
         $sql = "UPDATE citas SET estado='$estado' WHERE id_cita='$id_cita'";
         return ejecutarConsulta($sql);
     }
+    // Método para listar todas las citas
+    public function listar() {
+    $sql = "SELECT *
+            FROM citas"; 
+    return ejecutarConsulta($sql);
+}
 
     // Método para listar citas por paciente
     public function listarCitasPorPaciente($id_usuario) {

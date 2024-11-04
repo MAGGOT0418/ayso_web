@@ -12,8 +12,8 @@ $estado = isset($_POST["estado"]) ? limpiarCadena($_POST["estado"]) : "";
 $comentarios = isset($_POST["comentarios"]) ? limpiarCadena($_POST["comentarios"]) : "";
 
 switch ($_GET["op"]) {
-    case 'listarCitasPorPaciente':
-        $rspta = $cita->listarCitasPendientes();
+    case 'listar':
+        $rspta = $cita->listar();
         $data = Array();
 
         while ($reg = $rspta->fetch_object()) {
