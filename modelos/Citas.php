@@ -2,7 +2,7 @@
 //Incluímos inicialmente la conexión a la base de datos
 require "../config/Conexion.php";
 
-class Cita {
+class Citas {
     // Método para agendar una nueva cita
     public function agendarCita($id_paciente, $id_servicio, $fecha_cita, $comentarios) {
         $sql = "INSERT INTO citas (id_paciente, id_servicio, fecha_cita, estado, comentarios) 
