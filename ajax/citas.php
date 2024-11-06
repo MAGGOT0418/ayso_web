@@ -18,10 +18,7 @@ switch ($_GET["op"]) {
 
         while ($reg = $rspta->fetch_object()) {
             $data[] = array(
-                "0" => ($reg->estado == 'pendiente') 
-                    ? '<button class="btn btn-warning" onclick="mostrar('.$reg->id_cita.')"><i class="fa fa-pencil"></i></button>' .
-                      ' <button class="btn btn-danger" onclick="cancelar('.$reg->id_cita.')"><i class="fa fa-close"></i></button>' 
-                    : '<button class="btn btn-warning" onclick="mostrar('.$reg->id_cita.')"><i class="fa fa-pencil"></i></button>',
+                "0" => $reg->id_cita,
                 "1" => $reg->id_paciente,
                 "2" => $reg->id_servicio,
                 "3" => $reg->fecha_cita,
