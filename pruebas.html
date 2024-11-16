@@ -1,0 +1,134 @@
+<div class="Perfil">
+    <section class="doctor-profiles">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestros Especialistas</h2>
+            <div class="row">
+                <!-- Perfil del Dr. Juan Pérez -->
+                <div class="col-md-6 mb-4">
+                    <div class="doctor-card">
+                        <img src="images/dr_juan_perez.jpg" alt="Dr. Juan Pérez" class="doctor-image">
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Juan Pérez</h3>
+                            <p class="doctor-specialty">Odontólogo General</p>
+                            <p class="doctor-bio">Con más de 15 años de experiencia, me especializo en odontología preventiva y estética. Mi enfoque es proporcionar atención personalizada para lograr sonrisas saludables y radiantes. Utilizo las últimas tecnologías para garantizar tratamientos eficaces y cómodos.</p>
+                            <a href="perfil-doctor.html?id=1" class="read-more-btn">Ver perfil completo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Perfil de la Dra. María González -->
+                <div class="col-md-6 mb-4">
+                    <div class="doctor-card">
+                        <img src="images/dra_maria_gonzalez.jpg" alt="Dra. María González" class="doctor-image">
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dra. María González</h3>
+                            <p class="doctor-specialty">Ortodoncista</p>
+                            <p class="doctor-bio">Especialista en ortodoncia con 10 años de experiencia. Me apasiona crear sonrisas perfectas y saludables. Utilizo técnicas de vanguardia para ofrecer tratamientos de alineación dental eficientes y cómodos, adaptados a las necesidades de cada paciente.</p>
+                            <a href="perfil-doctor.html?id=2" class="read-more-btn">Ver perfil completo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .doctor-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .doctor-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .doctor-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .doctor-info {
+        padding: 20px;
+    }
+    
+    .doctor-name {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .doctor-specialty {
+        color: #0077be;
+        margin-bottom: 10px;
+    }
+    
+    .doctor-bio {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .read-more-btn {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #0077be;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .read-more-btn:hover {
+        background-color: #005fa3;
+    }
+</style>
+
+<!-- En un entorno real, se usaría JavaScript para cargar dinámicamente los perfiles de los doctores -->
+<script>
+    // Este es un ejemplo simplificado de cómo se podría cargar dinámicamente la información
+    // En la práctica, esto se haría con una llamada AJAX a tu servidor
+    function cargarPerfilesDoctor() {
+        // Simulación de datos obtenidos del servidor
+        const perfiles = [
+            {
+                id: 1,
+                nombre: "Dr. Juan Pérez",
+                especialidad: "Odontólogo General",
+                bio: "Con más de 15 años de experiencia, me especializo en odontología preventiva y estética. Mi enfoque es proporcionar atención personalizada para lograr sonrisas saludables y radiantes. Utilizo las últimas tecnologías para garantizar tratamientos eficaces y cómodos.",
+                imagen: "images/dr_juan_perez.jpg"
+            },
+            {
+                id: 2,
+                nombre: "Dra. María González",
+                especialidad: "Ortodoncista",
+                bio: "Especialista en ortodoncia con 10 años de experiencia. Me apasiona crear sonrisas perfectas y saludables. Utilizo técnicas de vanguardia para ofrecer tratamientos de alineación dental eficientes y cómodos, adaptados a las necesidades de cada paciente.",
+                imagen: "images/dra_maria_gonzalez.jpg"
+            }
+        ];
+
+        const contenedor = document.querySelector('.row');
+        contenedor.innerHTML = ''; // Limpiar el contenedor
+
+        perfiles.forEach(perfil => {
+            contenedor.innerHTML += `
+                <div class="col-md-6 mb-4">
+                    <div class="doctor-card">
+                        <img src="${perfil.imagen}" alt="${perfil.nombre}" class="doctor-image">
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">${perfil.nombre}</h3>
+                            <p class="doctor-specialty">${perfil.especialidad}</p>
+                            <p class="doctor-bio">${perfil.bio}</p>
+                            <a href="perfil-doctor.html?id=${perfil.id}" class="read-more-btn">Ver perfil completo</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // Llamar a la función cuando se cargue la página
+    window.onload = cargarPerfilesDoctor;
+</script>
