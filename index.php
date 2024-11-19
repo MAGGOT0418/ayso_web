@@ -1,3 +1,3 @@
 <?php
-header('location: vistas/index.html')
+header('location: vistas/index.php')
 ?>
