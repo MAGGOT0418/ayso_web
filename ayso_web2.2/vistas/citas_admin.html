@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../assets/css/citas_admin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <header class="header">
+                <div class="nav-icons">
+                    <span>☰</span>
+                    <span>◻</span>
+                </div>
+                <div class="date-nav">
+                    <button class="btn">Semana</button>
+                    <span>◀</span>
+                    <span>Lunes, 30 de septiembre de 2024 - Domingo, 06 de octubre de 2024</span>
+                    <span>▶</span>
+                </div>
+                <div class="actions">
+                    <span>🔄</span>
+                    <span>🔍</span>
+                    <span>📅</span>
+                    <span>🖨️</span>
+                    <button class="btn btn-primary">Nuevo ▼</button>
+                </div>
+            </header>
+
+            <div class="filters">
+                <div class="select-wrapper">
+                    <select>
+                        <option>Local 1</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select>
+                        <option>Profesional</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select>
+                        <option>gabriel</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select>
+                        <option>Reservas activas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <div class="calendar-header">
+                    <div></div>
+                    <div>Lunes 30/09</div>
+                    <div>Martes 01/10</div>
+                    <div>Miércoles 02/10</div>
+                    <div>Jueves 03/10</div>
+                    <div>Viernes 04/10</div>
+                    <div>Sábado 05/10</div>
+                    <div>Domingo 06/10</div>
+                </div>
+                <div class="calendar-body">
+                    <!-- Generating time slots from 09:00 to 19:00 -->
+                    <div class="time-slot">09:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">10:00</div>
+                    <div class="day-slot"><div class="appointment">Consulta - Juan</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">11:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">12:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+                    
+                    <div class="time-slot">1:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">Limpieza - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">2:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment">succion - Marío</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">3:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"><div class="appointment"> - María</div></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+
+                    <div class="time-slot">19:00</div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot"></div>
+                    <div class="day-slot weekend"></div>
+                    <div class="day-slot weekend"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="mini-calendar">
+                <div class="mini-calendar-header">
+                    <span>◀</span>
+                    <h3>Octubre 2024</h3>
+                    <span>▶</span>
+                </div>
+                <div class="mini-calendar-grid">
+                    <div class="mini-calendar-weekday">L</div>
+                    <div class="mini-calendar-weekday">M</div>
+                    <div class="mini-calendar-weekday">X</div>
+                    <div class="mini-calendar-weekday">J</div>
+                    <div class="mini-calendar-weekday">V</div>
+                    <div class="mini-calendar-weekday">S</div>
+                    <div class="mini-calendar-weekday">D</div>
+                    <!-- Días del mes -->
+                </div>
+            </div>
+            <div class="mini-calendar">
+                <div class="mini-calendar-header">
+                    <span>◀</span>
+                    <h3>Noviembre 2024</h3>
+                    <span>▶</span>
+                </div>
+                <div class="mini-calendar-grid">
+                    <div class="mini-calendar-weekday">L</div>
+                    <div class="mini-calendar-weekday">M</div>
+                    <div class="mini-calendar-weekday">X</div>
+                    <div class="mini-calendar-weekday">J</div>
+                    <div class="mini-calendar-weekday">V</div>
+                    <div class="mini-calendar-weekday">S</div>
+                    <div class="mini-calendar-weekday">D</div>
+                    <!-- Días del mes -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Llamada AJAX para obtener las citas desde la base de datos
+            fetch('recibir_citas.php')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(appointment => {
+                        const dayIndex = new Date(appointment.fecha_cita).getDay();
+                        const timeSlot = appointment.fecha_cita.split(' ')[1].split(':')[0];
+                        const daySlot = document.querySelector(`.calendar-body .day-slot:nth-child(${dayIndex + 1})`);
+                        if (daySlot) {
+                            const appointmentEl = document.createElement('div');
+                            appointmentEl.className = 'appointment';
+                            appointmentEl.textContent = `${appointment.nombre_servicio} - ${appointment.nombre}`;
+                            daySlot.appendChild(appointmentEl);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+    
+            // Generar días para los mini calendarios
+            const miniCalendars = document.querySelectorAll('.mini-calendar-grid');
+            miniCalendars.forEach((calendar, index) => {
+                const daysInMonth = new Date(2024, index + 10, 0).getDate();
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayEl = document.createElement('div');
+                    dayEl.className = 'mini-calendar-day';
+                    dayEl.textContent = i;
+                    if (i === 1) dayEl.classList.add('active');
+                    calendar.appendChild(dayEl);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
