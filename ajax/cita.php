@@ -5,7 +5,7 @@ require_once "../modelos/Citas.php";
 $citas = new Citas();
 
 // Recuperamos los valores enviados por POST
-$idCita = isset($_POST["idCita"]) ? limpiarCadena($_POST["idCita"]) : "";
+$id_cita = isset($_POST["id_cita"]) ? limpiarCadena($_POST["id_cita"]) : "";
 $idPaciente = isset($_POST["idPaciente"]) ? limpiarCadena($_POST["idPaciente"]) : "";
 $idServicio = isset($_POST["idServicio"]) ? limpiarCadena($_POST["idServicio"]) : "";
 $fechaCita = isset($_POST["fechaCita"]) ? limpiarCadena($_POST["fechaCita"]) : "";
@@ -19,17 +19,18 @@ switch ($_GET["op"]) {
         break;
 
     case 'eliminarCita':
-        $rspta = $citas->eliminarCita($idCita);
+        echo "que pedo";
+        $rspta = $citas->eliminarCita1($id_cita);
         echo $rspta ? "Cita eliminada" : "No se pudo eliminar la cita";
         break;
 
     case 'cancelarCita':
-        $rspta = $citas->cancelarCita($idCita);
+        $rspta = $citas->cancelarCita($id_cita);
         echo $rspta ? "Cita cancelada" : "No se pudo cancelar la cita";
         break;
 
     case 'actualizarEstadoCita':
-        $rspta = $citas->actualizarEstadoCita($idCita, $estado);
+        $rspta = $citas->actualizarEstadoCita($id_cita, $estado);
         echo $rspta ? "Estado de cita actualizado" : "No se pudo actualizar el estado de la cita";
         break;
 
@@ -100,6 +101,34 @@ switch ($_GET["op"]) {
         );
         echo json_encode($results);
         break;
+
+    case 'citasHoy':
+        $totalCitas = $citas->citasHoy(); 
+        echo json_encode(['total_citas' => $totalCitas]);
+
+        break;
+    
+    case 'citaspendientes':
+        $totalCitasPendientes = $citas->contarCitasPendientes();
+        echo json_encode(['total_citas_pendientes' => $totalCitasPendientes]);
+
+        break;
+
+    case 'citasproximas':
+        $rspta = $citas->resumenCitas();
+        $data = array();
+        if ($rspta->num_rows > 0) {
+            while ($row = $rspta->fetch_assoc()) {
+                echo "<tr>
+                            <td>" . $row['nombre'] . "</td>
+                            <td>" . $row['nombre_servicio'] . "</td>
+                            <td>" . $row['fecha_cita'] . " </td>
+                    </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='2'>No hay productos</td></tr>";
+        }
+            
 }
 
 ?>

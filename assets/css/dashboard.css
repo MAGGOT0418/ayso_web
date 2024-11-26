@@ -1,0 +1,167 @@
+:root {
+    --primary-color: #03cafc;
+    --primary-dark: #3a7bd5;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --primary-perfil: #592649;
+    --sidebar-width: 250px;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, var(--primary-color), var(--primary-perfil));
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    padding-top: 20px;
+    color: white;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+}
+
+/* Estilos para las tarjetas */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición más suave */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.card-header {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 15px;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+/* Estilos para las tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table thead th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el layout */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-3, .col-md-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+/* Estilos para los iconos (asumiendo que estás usando Font Awesome) */
+.card-body i {
+    font-size: 36px;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+/* Estilos para resaltar información importante */
+.text-success {
+    color: #28a745;
+}
+
+.text-warning {
+    color: #ffc107;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+

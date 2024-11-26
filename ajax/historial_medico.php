@@ -16,24 +16,19 @@ switch ($_GET["op"]) {
     case 'listarHistorialMedico':
         $rspta = $historialMedico->listarHistorialMedico();
         $data = array();
-
-        while ($reg = $rspta->fetch_object()) {
+    
+        // Generamos el array de datos
+        while ($row = $rspta->fetch_assoc()) {  
             $data[] = array(
-                "0" => '<button class="btn btn-warning" onclick="mostrar(' . $reg->id_historial . ')"></i></button>',
-                "1" => $reg->id_paciente,
-                "2" => $reg->id_cita,
-                "3" => $reg->diagnostico,
-                "4" => $reg->tratamiento,
-                "5" => $reg->fecha
+                "diagnostico" => $row['diagnostico'],
+                "tratamiento" => $row['tratamiento'],
+                "fecha" => $row['fecha'],
+                
             );
         }
-        $results = array(
-            "sEcho" => 1,
-            "iTotalRecords" => count($data),
-            "iTotalDisplayRecords" => count($data),
-            "aaData" => $data
-        );
-        echo json_encode($results);
+    
+        // Devolvemos el array como JSON
+        echo json_encode($data);
         break;
 
     case 'guardaryeditar':

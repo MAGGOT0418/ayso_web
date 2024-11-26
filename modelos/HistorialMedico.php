@@ -17,8 +17,9 @@ class HistorialMedico {
 
     // Método para listar todos los registros del historial médico
     public function listarHistorialMedico() {
-        $sql = "SELECT * FROM historial_medico";
+        $sql = "SELECT * FROM historial_medico;"; // Selecciona solo las columnas necesarias
         return ejecutarConsulta($sql);
     }
+    
 }
 ?>

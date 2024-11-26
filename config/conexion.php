@@ -1,46 +1,61 @@
 <?php 
+// Incluimos los parámetros globales de configuración
 require_once "global.php";
 
-$conexion = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+// Configuración para conexión a la base de datos
+$servidor = DB_HOST;
+$usuario = DB_USERNAME;
+$pass = DB_PASSWORD;
+$bd = DB_NAME;
 
-mysqli_query( $conexion, 'SET NAMES "'.DB_ENCODE.'"');
+// Conexión a la base de datos
+$conexion = new mysqli($servidor, $usuario, $pass, $bd);
 
-//Si tenemos un posible error en la conexión lo mostramos
-if (mysqli_connect_errno())
-{
-	printf("Falló conexión a la base de datos: %s\n",mysqli_connect_error());
-	exit();
+// Definimos el conjunto de caracteres para la conexión
+$conexion->set_charset(DB_ENCODE);
+
+// Verificamos errores en la conexión
+if ($conexion->connect_errno) {
+    printf("Falló conexión a la base de datos: %s\n", $conexion->connect_error);
+    exit();
 }
 
-if (!function_exists('ejecutarConsulta'))
-{
-	function ejecutarConsulta($sql)
-	{
-		global $conexion;
-		$query = $conexion->query($sql);
-		return $query;
-	}
+// Definimos la URL base del proyecto
+$base_url = "http://localhost/AYSO_WEB/vistas/";
 
-	function ejecutarConsultaSimpleFila($sql)
-	{
-		global $conexion;
-		$query = $conexion->query($sql);		
-		$row = $query->fetch_assoc();
-		return $row;
-	}
+// Si no existen las funciones, las definimos
+if (!function_exists('ejecutarConsulta')) {
+    function ejecutarConsulta($sql) {
+        global $conexion;
+        $query = $conexion->query($sql);
+        if (!$query) {
+            die("Error en la consulta SQL: " . $conexion->error);
+        }
+        return $query;
+    }
+    
 
-	function ejecutarConsulta_retornarID($sql)
-	{
-		global $conexion;
-		$query = $conexion->query($sql);		
-		return $conexion->insert_id;			
-	}
+    function ejecutarConsultaSimpleFila($sql) {
+        global $conexion;
+        $query = $conexion->query($sql);
+        if (!$query) {
+            die("Error en la consulta SQL: " . $conexion->error);
+        }
+        $row = $query->fetch_assoc();
+        return $row ? $row : null; // Retorna null si no hay filas
+    }
+    
 
-	function limpiarCadena($str)
-	{
-		global $conexion;
-		$str = mysqli_real_escape_string($conexion,trim($str));
-		return htmlspecialchars($str);
-	}
+    function ejecutarConsulta_retornarID($sql) {
+        global $conexion;
+        $query = $conexion->query($sql);
+        return $conexion->insert_id;			
+    }
+
+    function limpiarCadena($str) {
+        global $conexion;
+        return mysqli_real_escape_string($conexion, trim($str));
+    }
+    
 }
 ?>
