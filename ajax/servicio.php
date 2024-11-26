@@ -26,7 +26,7 @@ switch ($_GET["op"]) {
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['precio'] . "</td>
                         <td>
-                            <button onclick=\"mostrarActualizarServicios({$row['id_servicio']})\">Actualizar</button>
+                            <button class='btn btn-info btn-sm' onclick=\"mostrarActualizarServicios({$row['id_servicio']})\">Actualizar</button>
                         </td>
                     </tr>";
             }

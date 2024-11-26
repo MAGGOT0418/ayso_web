@@ -17,8 +17,8 @@ switch ($_GET["op"]) {
                         <td>" . $row['nombre_producto'] . "</td>
                         <td>" . $row['stock'] . "</td>
                         <td>
-                            <button onclick=\"mostrarActualizarStock({$row['id_producto']})\">Actualizar Stock</button>
-                            <button onclick=\"eliminarProducto({$row['id_producto']})\">Eliminar</button>
+                            <button class='btn btn-info btn-sm' onclick=\"mostrarActualizarStock({$row['id_producto']})\">Actualizar Stock</button>
+                            <button class='btn btn-danger btn-sm' onclick=\"eliminarProducto({$row['id_producto']})\">Eliminar</button>
                         </td>
                     </tr>";
             }
@@ -26,6 +26,7 @@ switch ($_GET["op"]) {
             echo "<tr><td colspan='3'>No hay productos</td></tr>";
         }
         break;
+    
     case 'precio':
         $rspta = $inventario->cambiarprecio($id_producto, $precio);
         break;
@@ -47,4 +48,3 @@ switch ($_GET["op"]) {
         echo json_encode(['status' => $rspta ? 'success' : 'error', 'message' => $rspta ? 'Producto agregado correctamente.' : 'Error al agregar el producto.']);
         break;
 }
-?>

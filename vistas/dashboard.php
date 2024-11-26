@@ -52,7 +52,7 @@
                 <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php"><i class="fas fa-calendar-alt"></i> Citas</a>
+                <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
@@ -63,9 +63,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-cog"></i> Configuración</a>
-            </li>
+            
         </ul>
     </div>
 
