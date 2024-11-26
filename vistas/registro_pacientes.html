@@ -1,149 +1,175 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: login.php"); 
+}
+
+$rol = $_SESSION['id_rol'] ?? null;
+$nombre = $_SESSION['nombre'] ?? '';
+$correo = $_SESSION['correo'] ?? '';
+$id_paciente = $_SESSION['id_paciente'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Paciente - Historial Médico</title>
-    <link rel="stylesheet" href="../assets/css/historial.css">
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+    <title>Clínica Dental - Registrar Cita</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../assets/css/registrar_cita.css">
 </head>
 
 <body>
-    <div class="sidebar">
-        <h2 class="text-center mb-4">ASYO Admin</h2>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-            </li>
-            
-        </ul>
-    </div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="form-container">
-                    <h2>Registrar Paciente - Historial Médico</h2>
-                    <form action="registro_paciente.php" method="post">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="nombre" class="form-label">Nombre completo:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
-                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
-                                    required>
-                            </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.php" style="color: #fff;">
+                <img src="../assets/images/LogoC.png" alt="Logo" style="width: 140px; height: 70px; margin-left: -30px;">
+                Arte y salud oral
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.php">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="registrar_cita.php">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.php">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.php">FAQ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <?php if (isset($_SESSION['id_usuario'])): ?>
+                        <?php $initial = strtoupper(substr($_SESSION['nombre'], 0, 1)); ?>
+                        <div class="dropdown">
+                            <button class="btn" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="d-flex align-items-center justify-content-center">
+                                    <?= $initial ?>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                <li><a class="dropdown-item profile-item" href="perfil.php"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                                <li><a class="dropdown-item logout-item" href="../php/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a></li>
+                            </ul>
                         </div>
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Dirección:</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion" required>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="telefono" class="form-label">Teléfono:</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Correo electrónico:</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="motivo_consulta" class="form-label">Motivo de la consulta:</label>
-                            <textarea class="form-control" id="motivo_consulta" name="motivo_consulta" rows="3"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">¿Está bajo tratamiento médico actualmente?</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tratamiento_medico"
-                                    id="tratamiento_si" value="si" required>
-                                <label class="form-check-label" for="tratamiento_si">Sí</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tratamiento_medico"
-                                    id="tratamiento_no" value="no" required>
-                                <label class="form-check-label" for="tratamiento_no">No</label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="medicamentos" class="form-label">Medicamentos que toma actualmente:</label>
-                            <textarea class="form-control" id="medicamentos" name="medicamentos" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">¿Es alérgico a algún medicamento?</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="alergias" id="alergias_si" value="si"
-                                    required>
-                                <label class="form-check-label" for="alergias_si">Sí</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="alergias" id="alergias_no" value="no"
-                                    required>
-                                <label class="form-check-label" for="alergias_no">No</label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="alergias_detalle" class="form-label">Si es alérgico, especifique:</label>
-                            <input type="text" class="form-control" id="alergias_detalle" name="alergias_detalle">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Condiciones médicas:</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="hipertension" name="condiciones[]"
-                                    value="hipertension">
-                                <label class="form-check-label" for="hipertension">Hipertensión</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="diabetes" name="condiciones[]"
-                                    value="diabetes">
-                                <label class="form-check-label" for="diabetes">Diabetes</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="problemas_cardiacos"
-                                    name="condiciones[]" value="problemas_cardiacos">
-                                <label class="form-check-label" for="problemas_cardiacos">Problemas cardíacos</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="otros" name="condiciones[]"
-                                    value="otros">
-                                <label class="form-check-label" for="otros">Otros</label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="otras_condiciones" class="form-label">Especifique otras condiciones
-                                médicas:</label>
-                            <textarea class="form-control" id="otras_condiciones" name="otras_condiciones"
-                                rows="3"></textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Registrar Paciente</button>
-                        </div>
-                    </form>
+                    <?php else: ?>
+                        <button class="btn btn-outline-light me-3" id="loginButton"><i class="fas fa-sign-in-alt me-2"></i>Login</button>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
+    </nav>
+    <div id="loginModal" class="modal"></div>
+    <div class="registrar-cita-container">
+        <h2 class="text-center mb-4">Registrar Cita</h2>
+        <form action="registrar_cita.php" method="post">
+            <input type="hidden" name="id_paciente" value="<?php echo htmlspecialchars($id_paciente); ?>">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="calendar-container">
+                        <div class="form-group">
+                            <label for="fecha_cita">Fecha de la Cita:</label>
+                            <input type="text" class="form-control" id="fecha_cita" name="fecha_cita" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label for="hora_cita">Hora de la Cita:</label>
+                            <select name="hora_cita" id="hora_cita" class="form-control" required>
+                                <option value="">Seleccione una hora</option>
+                                <?php
+                                $horas = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
+                                foreach ($horas as $hora) {
+                                    echo "<option value='$hora'>$hora</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Seleccione un servicio:</label>
+                            <select name="id_servicio" id="servicio" class="form-control" required>
+                                <option value="">Seleccione un servicio</option>
+                                <option value="1">Tratamientos Periodontales</option>
+                                <option value="2">Limpiezas</option>
+                                <option value="3">Extracciones</option>
+                                <option value="4">Regeneración de Encía</option>
+                                <option value="5">Regeneración de Hueso</option>
+                                <option value="6">Implantes Dentales</option>
+                                <option value="7">Prótesis sobre Implantes Dentales</option>
+                                <option value="8">Endodoncias</option>
+                                <option value="9">Retiro de Caries</option>
+                                <option value="10">Prótesis Dentales</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comentarios">Comentarios:</label>
+                            <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Registrar Cita</button>
+        </form>
     </div>
-
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <ul class="list-unstyled d-flex justify-content-around location_icon">
+                            <li class="text-center">
+                                <a href="#"><i class="fa fa-map-marker-alt fa-2x" aria-hidden="true"></i><br> 
+                                <span>Location</span></a>
+                            </li>
+                            <li class="text-center">
+                                <a href="#"><i class="fa fa-phone fa-2x" aria-hidden="true"></i><br> 
+                                <span>+01 1234567890</span></a>
+                            </li>
+                            <li class="text-center">
+                                <a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i><br> 
+                                <span>demo@gmail.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/loginmod.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#fecha_cita", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                inline: true,
+                locale: "es",
+                onChange: function (selectedDates, dateStr, instance) {
+                    console.log(dateStr);
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

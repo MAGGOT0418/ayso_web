@@ -5,7 +5,7 @@ session_start(); // Iniciar sesión
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "consultorio_bd2";
+$dbname = "consultorio_bd3";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($row['id_rol'] == 3) { // Paciente
             header("Location: ../vistas/index.php");
         } elseif ($row['id_rol'] == 1) { // Administrador
-            header("Location: ../vistas/dashboard.html");
+            header("Location: ../vistas/dashboard.php");
         } else {
             echo "Rol no reconocido.";
         }

@@ -1,6 +1,6 @@
 body {
     background-color: #f0f8ff;
-
+    font-family: 'Arial', sans-serif;
 }
 
 .registrar-cita-container {
@@ -133,11 +133,11 @@ button[type="submit"]:hover {
     .registrar-cita-container h2 {
         font-size: 28px;
     }
-
+    
     .row {
         flex-direction: column;
     }
-
+    
     .col-md-6 {
         width: 100%;
         margin-bottom: 20px;
