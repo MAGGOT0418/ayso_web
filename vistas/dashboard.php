@@ -23,32 +23,22 @@ if (isset($_SESSION['id_usuario'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
     <style>
         #inventariototal {
             text-align: center;
-            /* Alinea horizontalmente el texto */
         }
-
         #inventariototal th,
         #inventariototal td {
             text-align: center;
-            /* Alinea horizontalmente el contenido */
             vertical-align: middle;
-            /* Centra verticalmente el contenido */
         }
-
         #citasprox {
             text-align: center;
-            /* Alinea horizontalmente el texto */
         }
-
         #citasprox th,
         #citasprox td {
             text-align: center;
-            /* Alinea horizontalmente el contenido */
             vertical-align: middle;
-            /* Centra verticalmente el contenido */
         }
     </style>
 
@@ -170,18 +160,14 @@ if (isset($_SESSION['id_usuario'])) {
 
     <script>
         $(document).ready(function() {
-            // Solicitud AJAX para obtener el historial médico
             $.ajax({
-                url: '../ajax/historial_medico.php?op=listarHistorialMedico', // Cambia la URL si es necesario
+                url: '../ajax/historial_medico.php?op=listarHistorialMedico', 
                 type: 'GET',
-                dataType: 'json', // Indicamos que esperamos un JSON como respuesta
+                dataType: 'json', 
                 success: function(response) {
-                    // Limpiamos el contenido actual del tbody
                     $('#historialMedicoTable tbody').empty();
 
-                    // Verificamos si la respuesta tiene datos
                     if (response.length > 0) {
-                        // Iteramos sobre cada elemento del JSON y construimos las filas
                         response.forEach(function(historial) {
                             const row = `
                         <tr>
@@ -190,35 +176,28 @@ if (isset($_SESSION['id_usuario'])) {
                             <td>${historial.fecha}</td>
                         </tr>
                     `;
-                            // Agregamos cada fila al tbody
                             $('#historialMedicoTable tbody').append(row);
                         });
                     } else {
-                        // Si no hay datos, mostramos un mensaje en la tabla
                         $('#historialMedicoTable tbody').html('<tr><td colspan="3">No se encontraron registros de historial médico</td></tr>');
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error('Error al cargar el historial médico:', error);
-                    // Mostramos un mensaje en la tabla en caso de error
                     $('#historialMedicoTable tbody').html('<tr><td colspan="3">Error al cargar los datos</td></tr>');
                 }
             });
         });
 
-
         $(document).ready(function() {
             $.ajax({
                 url: '../ajax/agenda.php?op=listarProximas',
                 type: 'GET',
-                dataType: 'json', // Indicamos que esperamos un JSON como respuesta
+                dataType: 'json', 
                 success: function(response) {
-                    // Limpiamos el contenido actual del tbody
                     $('#citasprox tbody').empty();
 
-                    // Verificamos si la respuesta tiene datos
                     if (response.length > 0) {
-                        // Iteramos sobre cada elemento del JSON y construimos las filas
                         response.forEach(function(cita) {
                             const row = `
                         <tr>
@@ -227,11 +206,9 @@ if (isset($_SESSION['id_usuario'])) {
                             <td>${cita.inicio_normal}</td>
                         </tr>
                     `;
-                            // Agregamos cada fila al tbody
                             $('#citasprox tbody').append(row);
                         });
                     } else {
-                        // Si no hay datos, mostramos un mensaje en la tabla
                         $('#citasprox tbody').html('<tr><td colspan="3">No hay citas programadas para hoy</td></tr>');
                     }
                 },
