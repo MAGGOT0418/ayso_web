@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start(); // Iniciar sesión
 
 // Verificar si el usuario ha iniciado sesión
@@ -8,6 +8,7 @@ if (isset($_SESSION['id_usuario'])) {
     $correo = $_SESSION['correo'];
 } else {
     $rol = null; // No está logueado
+    header("location: ../index.php");
 }
 ?>
 

@@ -1,5 +1,24 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id_usuario'])) {
+    $rol = $_SESSION['id_rol']; 
+    $nombre = $_SESSION['nombre'];
+    $correo = $_SESSION['correo'];
+
+    if ($rol == 3) {
+        header("Location: index.php"); 
+        exit(); 
+    }
+} else {
+    $rol = null; 
+    header("Location: index.php"); 
+
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 
 <head>
     <meta charset="UTF-8">
@@ -37,10 +56,10 @@
                     <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
+                    <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario /
+                    <a class="nav-link active" href="inventario.php"><i class="fas fa-clipboard-list"></i> Inventario /
                         Servicios</a>
                 </li>
             </ul>

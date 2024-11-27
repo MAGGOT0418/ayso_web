@@ -8,6 +8,7 @@ if (isset($_SESSION['id_usuario'])) {
     $correo = $_SESSION['correo'];
 } else {
     $rol = null; // No está logueado
+    header("location: ../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -128,7 +129,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 <h3 class="doctor-name">Dr. Juan Pérez</h3>
                                 <p class="doctor-specialty">Odontólogo General</p>
                                 <p class="doctor-bio">El Dr. Juan Pérez cuenta con más de 15 años de experiencia en odontología general. Se especializa en tratamientos preventivos y estética dental. Su enfoque se centra en proporcionar atención integral y personalizada a cada paciente, asegurando sonrisas saludables y radiantes.</p>
-                                <a href="#" class="read-more-btn">Leer más</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -139,7 +140,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 <h3 class="doctor-name">Dra. María González</h3>
                                 <p class="doctor-specialty">Ortodoncista</p>
                                 <p class="doctor-bio">La Dra. María González es experta en ortodoncia y tratamientos de alineación dental. Con una trayectoria de 10 años en el campo, su enfoque se centra en crear sonrisas perfectas y saludables. Utiliza las técnicas más avanzadas para garantizar resultados óptimos y una experiencia cómoda para sus pacientes.</p>
-                                <a href="#" class="read-more-btn">Leer más</a>
+                                
                             </div>
                         </div>
                     </div>

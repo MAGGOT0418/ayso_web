@@ -3,18 +3,21 @@
 include 'funciones.php';
 // incluimos el archivo de configuracion
 include '../config/conexion.php';
-session_start(); // Iniciar sesión
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: index.php');
-    exit;
-}
-// Verificar si el usuario ha iniciado sesión
+
+session_start();
+
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $rol = $_SESSION['id_rol']; 
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
+
+    if ($rol == 3) {
+        header("Location: index.php"); 
+        exit(); 
+    }
 } else {
-    $rol = null; // No está logueado
+    $rol = null; 
+    header("Location: index.php"); 
 }
 date_default_timezone_set("America/Mexico_City");
 
@@ -119,10 +122,10 @@ if (isset($_POST['from'])) {
                         <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
+                        <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
+                        <a class="nav-link" href="inventario.php"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
                     </li>
                 </ul>
             </nav>
