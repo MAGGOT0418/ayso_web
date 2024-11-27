@@ -1,12 +1,24 @@
 <?php
-session_start();
-date_default_timezone_set("America/Mexico_City");
-
 // incluimos el archivo de funciones
 include 'funciones.php';
-
 // incluimos el archivo de configuracion
 include '../config/conexion.php';
+session_start(); // Iniciar sesión
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: index.php');
+    exit;
+}
+// Verificar si el usuario ha iniciado sesión
+if (isset($_SESSION['id_usuario'])) {
+    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $nombre = $_SESSION['nombre'];
+    $correo = $_SESSION['correo'];
+} else {
+    $rol = null; // No está logueado
+}
+date_default_timezone_set("America/Mexico_City");
+
+
 
 // Verificamos si se ha enviado el campo con name from
 if (isset($_POST['from'])) {
@@ -45,7 +57,7 @@ if (isset($_POST['from'])) {
         // Ejecutamos nuestra sentencia sql
         $conexion->query($query) or die('<script type="text/javascript">alert("Horario No Disponible ")</script>');
 
-        header("Location:$base_url");
+        header("Location:calendario.php");
 
 
         // Obtenemos el ultimo id insetado
@@ -235,21 +247,18 @@ if (isset($_POST['from'])) {
 
             // id del div donde se mostrara el calendario
             var calendar = $('#calendar').calendar(options);
-
             $('.btn-group button[data-calendar-nav]').each(function() {
                 var $this = $(this);
                 $this.click(function() {
                     calendar.navigate($this.data('calendar-nav'));
                 });
             });
-
             $('.btn-group button[data-calendar-view]').each(function() {
                 var $this = $(this);
                 $this.click(function() {
                     calendar.view($this.data('calendar-view'));
                 });
             });
-
             $('#first_day').change(function() {
                 var value = $(this).val();
                 value = value.length ? parseInt(value) : null;
@@ -274,17 +283,13 @@ if (isset($_POST['from'])) {
                             <input type='text' id="from" name="from" class="form-control" readonly />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
-
                         <br>
-
                         <label for="to">Final</label>
                         <div class='input-group date' id='to'>
                             <input type='text' name="to" id="to" class="form-control" readonly />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
-
                         <br>
-
                         <label for="tipo">Tipo de evento</label>
                         <select class="form-control" name="class" id="tipo">
                             <option value="Limpieza">Limpieza</option>
@@ -293,16 +298,10 @@ if (isset($_POST['from'])) {
                             <option value="Endodoncias">Endodoncias</option>
                             <option value="Protesis dental">Protesis dental</option>
                         </select>
-
                         <br>
-
-
                         <label for="title">Título</label>
                         <input type="text" required autocomplete="off" name="title" class="form-control" id="title" placeholder="Introduce un título">
-
                         <br>
-
-
                         <label for="body">Evento</label>
                         <textarea id="body" name="event" required class="form-control" rows="3"></textarea>
 
@@ -316,7 +315,6 @@ if (isset($_POST['from'])) {
                                     language: 'us',
                                     minDate: new Date()
                                 });
-
                             });
                         </script>
                 </div>
@@ -329,5 +327,4 @@ if (isset($_POST['from'])) {
         </div>
     </div>
 </body>
-
 </html>

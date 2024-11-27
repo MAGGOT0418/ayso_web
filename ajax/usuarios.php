@@ -3,19 +3,29 @@ require_once "../modelos/Usuarios.php";
 
 $usuarios = new Usuarios();
 
-$id_usuario = isset($_POST["id_usuario"]) ? limpiarCadena($_POST["id_usuario"]) : "";
-$nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
-$correo = isset($_POST["correo"]) ? limpiarCadena($_POST["correo"]) : "";
-$fecha_nacimiento = isset($_POST["fecha_nacimiento"]) ? limpiarCadena($_POST["fecha_nacimiento"]) : "";
-$direccion = isset($_POST["direccion"]) ? limpiarCadena($_POST["direccion"]) : "";
-$id_rol = isset($_POST["id_rol"]) ? limpiarCadena($_POST["id_rol"]) : "";
-
 switch ($_GET["op"]) {
     case 'listar':
-       $rspta = $usuarios->contarUsuarios();
+        $rspta = $usuarios->contarUsuarios();
+        echo json_encode(['total_usuarios' => $rspta]);
+        break;
 
-       echo json_encode(['total_usuarios' => $rspta]);
-
-       break;
+    case 'listarUsuarios':
+        $rspta = $usuarios->listarUsuarios();
+        if ($rspta->num_rows > 0) {
+            while ($row = $rspta->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row['nombre'] . "</td>
+                        <td>" . $row['correo'] . "</td>
+                        <td>" . $row['fecha_nacimiento'] . "</td>
+                        <td>" . $row['direccion'] . "</td>
+                        <td>
+                            <button class='btn btn-info btn-sm' onclick=\"mostrarActualizarStock({$row['id_usuario']})\">Historial</button>
+                        </td>
+                    </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5'>No se encontraron usuarios</td></tr>";
+        }
+        break;
 }
 ?>

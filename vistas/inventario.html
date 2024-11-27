@@ -288,7 +288,7 @@
         }
 
         function cargarProductos() {
-            $.ajax({
+            $.ajax({   
                 url: '../ajax/inventario.php?op=listar',
                 type: 'GET',
                 success: function (response) {
@@ -300,9 +300,7 @@
             });
         }
 
-        $(document).ready(function () {
-            cargarProductos();
-        });
+        
 
         function mostrarActualizarServicios(id_servicio) {
             $.ajax({

@@ -1,3 +1,15 @@
+<?php
+session_start(); // Iniciar sesión
+
+// Verificar si el usuario ha iniciado sesión
+if (isset($_SESSION['id_usuario'])) {
+    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $nombre = $_SESSION['nombre'];
+    $correo = $_SESSION['correo'];
+} else {
+    $rol = null; // No está logueado
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 

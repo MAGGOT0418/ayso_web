@@ -7,7 +7,7 @@ $nombre_producto = isset($_POST["nombre_producto"]) ? limpiarCadena($_POST["nomb
 $stock = isset($_POST["stock"]) ? limpiarCadena($_POST["stock"]) : "";
 $precio = isset($_POST["precio"]) ? limpiarCadena($_POST["precio"]) : "";
 
-switch ($_GET["op"]) {
+switch ($_GET["op"]) {  
     case 'listar':
         $rspta = $inventario->listarinventario();
         $data = array();
