@@ -44,9 +44,7 @@ if (isset($_SESSION['id_usuario'])) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="vistas/faq.php">FAQ</a>
-                    </li>
+                    
                 </ul>
                 <div class="d-flex">
                     <?php if (isset($_SESSION['id_usuario'])): ?>
@@ -80,21 +78,21 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/images/carr2.jpg" class="d-block w-100" alt="Sonrisa brillante">
+                <img src="assets/images/freepik-export-20241127212111IXD0.jpeg" class="d-block w-100" alt="Sonrisa brillante">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Sonrisas Brillantes</h5>
                     <p>Transformamos tu sonrisa con nuestros tratamientos de vanguardia.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/images/carr1.jpg" class="d-block w-100" alt="Equipo dental">
+                <img src="assets/images/dental-chair-other-accesorries-used-by-dentist-empty-cabinet-stomatology-cabinet-with-nobody-it-orange-equipment-oral-treatment.jpg" class="d-block w-100" alt="Equipo dental">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Equipo Profesional</h5>
                     <p>Nuestro equipo de expertos está aquí para cuidar de tu salud dental.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/images/carr3.jpg" class="d-block w-100" alt="Tecnología dental">
+                <img src="assets/images/dentist.jpeg" class="d-block w-100" alt="Tecnología dental">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Tecnología Avanzada</h5>
                     <p>Utilizamos la última tecnología para ofrecerte el mejor cuidado dental.</p>
@@ -119,7 +117,7 @@ if (isset($_SESSION['id_usuario'])) {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="doctor-card">
-                            <img src="assets/images/doc.jfif" alt="Dr. Juan Pérez" class="doctor-image">
+                            <img src="assets/images/freepik-export-20241127210432GbLV.jpeg" alt="Dr. Juan Pérez" class="doctor-image">
                             <div class="doctor-info">
                                 <h3 class="doctor-name">Dr. Juan Pérez</h3>
                                 <p class="doctor-specialty">Odontólogo General</p>
@@ -130,7 +128,7 @@ if (isset($_SESSION['id_usuario'])) {
                     </div>
                     <div class="col-md-6">
                         <div class="doctor-card">
-                            <img src="assets/images/doc.jfif" alt="Dra. María González" class="doctor-image">
+                            <img src="assets/images/freepik-export-20241127210231IJaB.jpeg" alt="Dra. María González" class="doctor-image">
                             <div class="doctor-info">
                                 <h3 class="doctor-name">Dra. María González</h3>
                                 <p class="doctor-specialty">Ortodoncista</p>
