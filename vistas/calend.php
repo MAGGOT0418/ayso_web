@@ -3,21 +3,17 @@
 include 'funciones.php';
 // incluimos el archivo de configuracion
 include '../config/conexion.php';
-session_start(); // Iniciar sesión
 
 // Verificar si el usuario ha iniciado sesión
 if (isset($_SESSION['id_usuario'])) {
     $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
-    if ($rol == 3) {
-        header("location: index.php");
-    }
 } else {
     $rol = null; // No está logueado
-    header("location: ../index.php");
 }
 date_default_timezone_set("America/Mexico_City");
+
 
 
 // Verificamos si se ha enviado el campo con name from
@@ -86,7 +82,6 @@ if (isset($_POST['from'])) {
 
 <head>
     <meta charset="utf-8">
-    <title>Calendario</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/calendar.css">
     <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
@@ -104,35 +99,8 @@ if (isset($_POST['from'])) {
 </head>
 
 <body>
-    <div class="d-flex">
-        <div class="sidebar">
-            <h2 class="text-center mb-4">ASYO Admin</h2>
-            <nav class="sidebar-nav">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="inventario.php"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <a href="../php/logout.php" class="nav-link text-danger logout">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-                </a>
-            </div>
-        </div>
-        <div class="main-content">
+    <div >
+>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
@@ -148,9 +116,7 @@ if (isset($_POST['from'])) {
                             <button class="btn btn-warning" data-calendar-view="day">Día</button>
                         </div>
                     </div>
-                    <div class="col-sm-4 text-right">
-                        <button class="btn btn-info" data-toggle='modal' data-target='#add_evento'>Añadir Evento</button>
-                    </div>
+
                 </div>
 
                 <br><br><br>
@@ -333,5 +299,4 @@ if (isset($_POST['from'])) {
         </div>
     </div>
 </body>
-
 </html>

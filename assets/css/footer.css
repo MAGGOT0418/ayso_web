@@ -1,6 +1,9 @@
+
+/* Footer */
 .footer {
     background: linear-gradient(to right, #592649, #0283a4);
     color: white;
+    text-align: center;
     padding: 20px 0;
 }
 .footer a {
@@ -18,3 +21,4 @@
 .social-icons a {
     margin-right: 15px;
 }
+

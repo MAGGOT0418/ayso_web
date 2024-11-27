@@ -77,56 +77,10 @@ if (isset($_SESSION['id_usuario'])) {
     </nav>
     <div id="loginModal" class="modal"></div>
     <div class="registrar-cita-container">
-        <h2 class="text-center mb-4">Registrar Cita</h2>
+        <h2 class="text-center mb-4">Fechas disponibles</h2>
         <form action="registrar_cita.php" method="post">
-            <input type="hidden" name="id_paciente" value="<?php echo htmlspecialchars($id_paciente); ?>">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="calendar-container">
-                        <div class="form-group">
-                            <label for="fecha_cita">Fecha de la Cita:</label>
-                            <input type="text" class="form-control" id="fecha_cita" name="fecha_cita" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-container">
-                        <div class="form-group">
-                            <label for="hora_cita">Hora de la Cita:</label>
-                            <select name="hora_cita" id="hora_cita" class="form-control" required>
-                                <option value="">Seleccione una hora</option>
-                                <?php
-                                $horas = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
-                                foreach ($horas as $hora) {
-                                    echo "<option value='$hora'>$hora</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="servicio">Seleccione un servicio:</label>
-                            <select name="id_servicio" id="servicio" class="form-control" required>
-                                <option value="">Seleccione un servicio</option>
-                                <option value="1">Tratamientos Periodontales</option>
-                                <option value="2">Limpiezas</option>
-                                <option value="3">Extracciones</option>
-                                <option value="4">Regeneración de Encía</option>
-                                <option value="5">Regeneración de Hueso</option>
-                                <option value="6">Implantes Dentales</option>
-                                <option value="7">Prótesis sobre Implantes Dentales</option>
-                                <option value="8">Endodoncias</option>
-                                <option value="9">Retiro de Caries</option>
-                                <option value="10">Prótesis Dentales</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="comentarios">Comentarios:</label>
-                            <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Registrar Cita</button>
+<iframe src="calend.php" width="100%" height="700px" style="border:none;" title="Iframe Example" ></iframe>
+           
         </form>
     </div>
     <footer class="footer">
