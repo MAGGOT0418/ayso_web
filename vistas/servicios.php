@@ -22,6 +22,7 @@ if (isset($_SESSION['id_usuario'])) {
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/footer.css"
 </head>
 
 <body>
@@ -183,30 +184,46 @@ if (isset($_SESSION['id_usuario'])) {
             </div>
         </section>
     </div>
-    <footer>
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <ul class="list-unstyled d-flex justify-content-around location_icon">
-                            <li class="text-center">
-                                <a href="#"><i class="fa fa-map-marker-alt fa-2x" aria-hidden="true"></i><br> 
-                                <span>Location</span></a>
-                            </li>
-                            <li class="text-center">
-                                <a href="#"><i class="fa fa-phone fa-2x" 
-                                aria-hidden="true"></i><br> 
-                                <span>+01 1234567890</span></a>
-                            </li>
-                            <li class="text-center">
-                                <a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i><br> 
-                                <span>demo@gmail.com</span></a>
-                            </li>
-                        </ul>
-                    </div>
+    <footer class="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                <h5>Arte y Salud Oral</h5>
+                <p class="mb-0">Cuidando tu sonrisa desde 2005</p>
+            </div>
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="#" title="Ubicación">
+                            <i class="fas fa-map-marker-alt footer-icon"></i>
+                            <span class="d-none d-sm-inline">Calle Principal 123, Ciudad</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="tel:+011234567890" title="Teléfono">
+                            <i class="fas fa-phone footer-icon"></i>
+                            <span class="d-none d-sm-inline">+01 1234567890</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="mailto:info@arteysaludoral.com" title="Email">
+                            <i class="fas fa-envelope footer-icon"></i>
+                            <span class="d-none d-sm-inline">info@arteysaludoral.com</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook footer-icon"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter footer-icon"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram footer-icon"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin footer-icon"></i></a>
                 </div>
             </div>
         </div>
+    </div>
+</footer>
     </footer>
     <script src="../js/loginmod.js"></script>
     <!-- jQuery -->
