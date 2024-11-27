@@ -1,9 +1,10 @@
-body {
+/* Scope all styles to the appointment registration page */
+.registrar-cita-page {
     background-color: #f0f8ff;
-    font-family: 'Arial', sans-serif;
 }
 
-.registrar-cita-container {
+/* Keep all existing styles but nest them under .registrar-cita-page */
+.registrar-cita-page .registrar-cita-container {
     max-width: 900px;
     width: 90%;
     margin: 50px auto;
@@ -13,7 +14,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
 }
 
-.registrar-cita-container h2 {
+.registrar-cita-page .registrar-cita-container h2 {
     text-align: center;
     font-size: 32px;
     color: #007bff;
@@ -23,18 +24,18 @@ body {
     letter-spacing: 1px;
 }
 
-.form-group {
+.registrar-cita-page .form-group {
     margin-bottom: 25px;
 }
 
-.form-group label {
+.registrar-cita-page .form-group label {
     font-weight: 600;
     color: #333;
     margin-bottom: 8px;
     display: block;
 }
 
-.form-control {
+.registrar-cita-page .form-control {
     padding: 12px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
@@ -42,55 +43,55 @@ body {
     transition: all 0.3s ease;
 }
 
-.form-control:focus {
+.registrar-cita-page .form-control:focus {
     border-color: #007bff;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
 }
 
-textarea.form-control {
+.registrar-cita-page textarea.form-control {
     min-height: 120px;
 }
 
-.calendar-container {
+.registrar-cita-page .calendar-container {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#fecha_cita {
+.registrar-cita-page #fecha_cita {
     text-align: center;
 }
 
-.flatpickr-calendar {
+.registrar-cita-page .flatpickr-calendar {
     box-shadow: none !important;
     width: 100%;
     max-width: 350px;
     margin: 0 auto;
 }
 
-.flatpickr-day.selected {
+.registrar-cita-page .flatpickr-day.selected {
     background: #007bff !important;
     border-color: #007bff !important;
 }
 
-.row {
+.registrar-cita-page .row {
     display: flex;
     justify-content: space-between;
 }
 
-.col-md-6 {
+.registrar-cita-page .col-md-6 {
     width: 48%;
 }
 
-.form-container {
+.registrar-cita-page .form-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-select.form-control {
+.registrar-cita-page select.form-control {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -102,7 +103,7 @@ select.form-control {
     background-size: 12px;
 }
 
-button[type="submit"] {
+.registrar-cita-page button[type="submit"] {
     width: 100%;
     padding: 15px;
     font-size: 18px;
@@ -119,26 +120,26 @@ button[type="submit"] {
     margin-top: 30px;
 }
 
-button[type="submit"]:hover {
+.registrar-cita-page button[type="submit"]:hover {
     background-color: #0056b3;
     box-shadow: 0 7px 20px rgba(0, 123, 255, 0.4);
     transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-    .registrar-cita-container {
+    .registrar-cita-page .registrar-cita-container {
         padding: 30px;
     }
 
-    .registrar-cita-container h2 {
+    .registrar-cita-page .registrar-cita-container h2 {
         font-size: 28px;
     }
     
-    .row {
+    .registrar-cita-page .row {
         flex-direction: column;
     }
     
-    .col-md-6 {
+    .registrar-cita-page .col-md-6 {
         width: 100%;
         margin-bottom: 20px;
     }

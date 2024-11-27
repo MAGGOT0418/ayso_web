@@ -47,9 +47,7 @@ if (isset($_SESSION['id_usuario'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="registrar_cita.php">Citas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="perfil.php">Perfil</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
@@ -65,7 +63,7 @@ if (isset($_SESSION['id_usuario'])) {
                             </span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item profile-item" href="perfil.html"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                            <li><a class="dropdown-item profile-item" href="perfil.php"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
                             <li><a class="dropdown-item logout-item" href="../php/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a></li>
                         </ul>
                     </div>
@@ -229,7 +227,7 @@ if (isset($_SESSION['id_usuario'])) {
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

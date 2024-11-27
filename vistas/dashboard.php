@@ -27,14 +27,17 @@ if (isset($_SESSION['id_usuario'])) {
         #inventariototal {
             text-align: center;
         }
+
         #inventariototal th,
         #inventariototal td {
             text-align: center;
             vertical-align: middle;
         }
+
         #citasprox {
             text-align: center;
         }
+
         #citasprox th,
         #citasprox td {
             text-align: center;
@@ -49,25 +52,33 @@ if (isset($_SESSION['id_usuario'])) {
 
     <div class="sidebar">
         <h2 class="text-center mb-4">ASYO Admin</h2>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-            </li>
-            
-        </ul>
+        <nav class="sidebar-nav">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../php/logout.php" class="nav-link text-danger logout">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            </a>
+        </div>
     </div>
+
+
 
     <div class="main-content">
         <h1 class="mb-4">Dashboard</h1>
@@ -108,7 +119,7 @@ if (isset($_SESSION['id_usuario'])) {
                         <h5 class="card-title mb-0">Ingresos del Mes</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="card-text">$25,680</h2>
+                        <h2 class="card-text">$25,000</h2>
                     </div>
                 </div>
             </div>
@@ -144,7 +155,7 @@ if (isset($_SESSION['id_usuario'])) {
                         <table id="historialMedicoTable" class="table table-light">
                             <thead class="thead-light">
                                 <tr>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -161,9 +172,9 @@ if (isset($_SESSION['id_usuario'])) {
     <script>
         $(document).ready(function() {
             $.ajax({
-                url: '../ajax/historial_medico.php?op=listarHistorialMedico', 
+                url: '../ajax/historial_medico.php?op=listarHistorialMedico',
                 type: 'GET',
-                dataType: 'json', 
+                dataType: 'json',
                 success: function(response) {
                     $('#historialMedicoTable tbody').empty();
 
@@ -193,7 +204,7 @@ if (isset($_SESSION['id_usuario'])) {
             $.ajax({
                 url: '../ajax/agenda.php?op=listarProximas',
                 type: 'GET',
-                dataType: 'json', 
+                dataType: 'json',
                 success: function(response) {
                     $('#citasprox tbody').empty();
 

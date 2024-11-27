@@ -48,9 +48,7 @@ $id_paciente = $_SESSION['id_paciente'] ?? '';
                     <li class="nav-item">
                         <a class="nav-link active" href="registrar_cita.php">Citas</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfil.php">Perfil</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="faq.php">FAQ</a>
                     </li>

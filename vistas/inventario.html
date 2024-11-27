@@ -25,24 +25,31 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="sidebar">
         <h2 class="text-center mb-4">ASYO Admin</h2>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-            </li>
-            
-        </ul>
+        <nav class="sidebar-nav">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario /
+                        Servicios</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../php/logout.php" class="nav-link text-danger logout">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            </a>
+        </div>
     </div>
     <div class="main-content">
         <div class="col-md-6">
@@ -71,7 +78,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -232,8 +239,8 @@
                     const res = JSON.parse(response);
                     if (res.status === 'success') {
                         alert(res.message);
-                        $('#modalInsertarServicio').modal('hide'); 
-                        cargarServicios(); 
+                        $('#modalInsertarServicio').modal('hide');
+                        cargarServicios();
                     } else {
                         alert(res.message);
                     }
@@ -275,7 +282,7 @@
                     const res = JSON.parse(response);
                     if (res.status === 'success') {
                         alert(res.message);
-                        $('#modalInsertarProducto').modal('hide'); 
+                        $('#modalInsertarProducto').modal('hide');
                         cargarProductos();
                     } else {
                         alert(res.message);
@@ -288,7 +295,7 @@
         }
 
         function cargarProductos() {
-            $.ajax({   
+            $.ajax({
                 url: '../ajax/inventario.php?op=listar',
                 type: 'GET',
                 success: function (response) {

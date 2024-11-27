@@ -47,9 +47,7 @@ if (isset($_SESSION['id_usuario'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="registrar_cita.php">Citas</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfil.php">Perfil</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="faq.php">FAQ</a>
                     </li>
@@ -65,7 +63,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 </span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                <li><a class="dropdown-item profile-item" href="perfil.html"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                                <li><a class="dropdown-item profile-item" href="perfil.php"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
                                 <li><a class="dropdown-item logout-item" href="../php/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a></li>
                             </ul>
                         </div>

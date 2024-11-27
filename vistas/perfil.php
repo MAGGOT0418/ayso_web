@@ -72,7 +72,7 @@ $historial_medico = $stmt->get_result();
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Inicio</a>
+                    <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="servicios.php">Servicios</a>
@@ -80,9 +80,7 @@ $historial_medico = $stmt->get_result();
                 <li class="nav-item">
                     <a class="nav-link" href="registrar_cita.php">Citas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="perfil.php">Perfil</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>

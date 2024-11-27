@@ -107,24 +107,30 @@ if (isset($_POST['from'])) {
     <div class="d-flex">
         <div class="sidebar">
             <h2 class="text-center mb-4">ASYO Admin</h2>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link " href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-                </li>
-                
-            </ul>
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_pacientes.html"><i class="fas fa-users"></i> Pacientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventario.html"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../php/logout.php" class="nav-link text-danger logout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+            </div>
         </div>
         <div class="main-content">
             <div class="container">
@@ -327,4 +333,5 @@ if (isset($_POST['from'])) {
         </div>
     </div>
 </body>
+
 </html>

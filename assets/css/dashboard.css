@@ -16,6 +16,8 @@
     width: var(--sidebar-width);
     padding-top: 20px;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -38,6 +40,23 @@ body {
 
 .sidebar .nav-link i {
     margin-right: 10px;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-footer {
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .logout {
+    display: block;
+    padding: 10px 0;
+    text-align: left;
+    width: 100%;
 }
 
 .main-content {
