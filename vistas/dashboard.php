@@ -1,21 +1,19 @@
 <?php
-session_start();
+session_start(); // Iniciar sesión
 
+// Verificar si el usuario ha iniciado sesión
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; 
+    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
-
     if ($rol == 3) {
-        header("Location: index.php"); 
-        exit(); 
+        header("location: index.php");
     }
 } else {
-    $rol = null; 
-    header("Location: index.php"); 
+    $rol = null; // No está logueado
+    header("location: ../index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +21,6 @@ if (isset($_SESSION['id_usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Administrativo - DentalCare</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -58,32 +55,34 @@ if (isset($_SESSION['id_usuario'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <div class="sidebar">
-            <h2 class="text-center mb-4">ASYO Admin</h2>
-            <nav class="sidebar-nav">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="inventario.php"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <a href="../php/logout.php" class="nav-link text-danger logout">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-                </a>
-            </div>
+        <h2 class="text-center mb-4">ASYO Admin</h2>
+        <nav class="sidebar-nav">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventario.php"><i class="fas fa-clipboard-list"></i> Inventario / Servicios</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../php/logout.php" class="nav-link text-danger logout">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            </a>
         </div>
+    </div>
+
+
 
     <div class="main-content">
         <h1 class="mb-4">Dashboard</h1>

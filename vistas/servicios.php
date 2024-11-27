@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start(); // Iniciar sesión
 
 // Verificar si el usuario ha iniciado sesión
