@@ -1,0 +1,20 @@
+.footer {
+    background: linear-gradient(to right, #592649, #0283a4);
+    color: white;
+    padding: 20px 0;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+.footer-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.social-icons a {
+    margin-right: 15px;
+}
