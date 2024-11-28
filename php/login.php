@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirigir según el rol del usuario
         if ($row['id_rol'] == 3) { // Paciente
-            header("Location: ../vistas/index.php");
+            header("Location: ../vistas/registrar_cita.php");
         } elseif ($row['id_rol'] == 1) { // Administrador
             header("Location: ../vistas/dashboard.php");
         } else {

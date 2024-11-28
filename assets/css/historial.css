@@ -34,3 +34,117 @@ body {
     background-color: #0056b3;
     border-color: #0056b3;
 }
+
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.modal-header {
+    background: #3a7bd5;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding: 15px;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-header .close {
+    color: white;
+    opacity: 0.8;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+/* Estilos para el formulario */
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(3, 202, 252, 0.2);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Estilos para radio buttons y checkboxes */
+.radio label,
+.checkbox label {
+    padding-left: 25px;
+    position: relative;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+    margin-left: -25px;
+    margin-top: 4px;
+}
+
+/* Estilos para el botón de submit */
+.btn-primary {
+    
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--primary-perfil);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los grupos de campos */
+.mb-3 {
+    margin-bottom: 20px;
+}
+
+/* Estilos para textarea */
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Estilos para el botón de cerrar */
+.modal-header .close {
+    margin-top: -2px;
+    font-size: 24px;
+}
+
+/* Estilos para el modal grande */
+.modal-lg {
+    width: 90%;
+    max-width: 1000px;
+}
+
+/* Estilos para el cuerpo del modal */
+.modal-body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-lg {
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .row [class*="col-"] {
+        margin-bottom: 15px;
+    }
+}
