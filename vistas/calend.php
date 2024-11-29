@@ -100,7 +100,7 @@ if (isset($_POST['from'])) {
 
 <body>
     <div >
->
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">

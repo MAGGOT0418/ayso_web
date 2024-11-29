@@ -280,7 +280,7 @@ if (isset($_POST['from'])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Agregar nuevo evento</h4>
+                    <h4 class="modal-title" id="myModalLabel">Agregar nueva cita</h4>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
@@ -296,7 +296,7 @@ if (isset($_POST['from'])) {
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
                         <br>
-                        <label for="tipo">Tipo de evento</label>
+                        <label for="tipo">Servicio</label>
                         <select class="form-control" name="class" id="tipo">
                             <option value="Limpieza">Limpieza</option>
                             <option value="Extracciones">Extracciones</option>
@@ -305,10 +305,10 @@ if (isset($_POST['from'])) {
                             <option value="Protesis dental">Protesis dental</option>
                         </select>
                         <br>
-                        <label for="title">Título</label>
+                        <label for="title">Nombre</label>
                         <input type="text" required autocomplete="off" name="title" class="form-control" id="title" placeholder="Introduce un título">
                         <br>
-                        <label for="body">Evento</label>
+                        <label for="body">Comentarios</label>
                         <textarea id="body" name="event" required class="form-control" rows="3"></textarea>
 
                         <script type="text/javascript">

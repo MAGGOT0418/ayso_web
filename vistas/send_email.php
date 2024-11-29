@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "jairo117black@gmail.com";
     $subject = "Nuevo mensaje de contacto";
     $body = "Nombre: $name\nTeléfono: $phone\nCorreo: $email\nMensaje: $message";
-    $headers = "From: no-reply@tudominio.com" . "\r\n" .
+    $headers = "From: j.pineda.isw@unipolidgo.edu.mx" . "\r\n" .
                "Reply-To: $email" . "\r\n" .
                "X-Mailer: PHP/" . phpversion();
 

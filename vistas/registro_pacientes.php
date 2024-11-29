@@ -172,7 +172,7 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
     <div class="main-content">
-        <h1 class="mb-4">Dashboard</h1>
+        <h1 class="mb-4">Usuarios</h1>
         <div class="row mt-6">
             <div class="col-md-12 mb-4">
                 <div class="card">
