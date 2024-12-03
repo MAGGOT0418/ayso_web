@@ -25,7 +25,6 @@ if (isset($_SESSION['id_usuario'])) {
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="index.php" style="color: #fff;">
@@ -54,7 +53,6 @@ if (isset($_SESSION['id_usuario'])) {
             </ul>
             <div class="d-flex">
                 <?php if (isset($_SESSION['id_usuario'])): ?>
-                    <!-- Mostrar el círculo con la inicial del nombre del usuario -->
                     <?php $initial = strtoupper(substr($_SESSION['nombre'], 0, 1)); ?>
                     <div class="dropdown">
                         <button class="btn" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +73,6 @@ if (isset($_SESSION['id_usuario'])) {
     </div>
 </nav>
     <div id="loginModal" class="modal"></div>
-    <!-- Contenido FAQ -->
     <div class="dental-faq-container">
         <svg class="dental-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -118,7 +115,6 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
 
-    <!--footer-->
     <footer class="footer">
     <div class="container">
         <div class="row align-items-center">
@@ -160,11 +156,8 @@ if (isset($_SESSION['id_usuario'])) {
     </div>
 </footer>
     <script src="../js/loginmod.js"></script>
-    <!-- jQuery y Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Script para funcionalidad de las preguntas -->
     <script>
         document.querySelectorAll('.dental-faq-question').forEach(button => {
             button.addEventListener('click', function () {

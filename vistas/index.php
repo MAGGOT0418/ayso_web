@@ -26,7 +26,6 @@ if (isset($_SESSION['id_usuario'])) {
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.php" style="color: #fff;">
@@ -55,7 +54,6 @@ if (isset($_SESSION['id_usuario'])) {
                 </ul>
                 <div class="d-flex">
                     <?php if (isset($_SESSION['id_usuario'])): ?>
-                        <!-- Mostrar el círculo con la inicial del nombre del usuario -->
                         <?php $initial = strtoupper(substr($_SESSION['nombre'], 0, 1)); ?>
                         <div class="dropdown">
                             <button class="btn" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -126,9 +124,9 @@ if (isset($_SESSION['id_usuario'])) {
                         <div class="doctor-card">
                             <img src="../assets/images/freepik-export-20241127210432GbLV.jpeg" alt="Dr. Juan Pérez" class="doctor-image">
                             <div class="doctor-info">
-                                <h3 class="doctor-name">Dr. Braulio García</h3>
+                                <h3 class="doctor-name">Dr. Juan Pérez</h3>
                                 <p class="doctor-specialty">Odontólogo General</p>
-                                <p class="doctor-bio">El Dr. Braulio García cuenta con más de 15 años de experiencia en odontología general. Se especializa en tratamientos preventivos y estética dental. Su enfoque se centra en proporcionar atención integral y personalizada a cada paciente, asegurando sonrisas saludables y radiantes.</p>
+                                <p class="doctor-bio">El Dr. Juan Pérez cuenta con más de 15 años de experiencia en odontología general. Se especializa en tratamientos preventivos y estética dental. Su enfoque se centra en proporcionar atención integral y personalizada a cada paciente, asegurando sonrisas saludables y radiantes.</p>
                             </div>
                         </div>
                     </div>
@@ -147,12 +145,11 @@ if (isset($_SESSION['id_usuario'])) {
         </section>
     </div>
 
-    <!-- Contact Form and Map -->
     <div id="contact" class="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form id="request" class="main_form" action="send_email.php" method="POST">
+                    <form id="request" class="main_form" action="../ajax/send_email.php" method="POST">
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Contáctanos</h3>
@@ -183,7 +180,6 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
     <div class="container">
         <div class="row align-items-center">
@@ -224,7 +220,6 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
 </footer>
-    <!-- Aquí estará el contenido del modal -->
     <div id="loginModal" class="modal"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

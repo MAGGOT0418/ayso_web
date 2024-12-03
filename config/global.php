@@ -2,7 +2,7 @@
     //ip de la pc servidor de base de datos
     define("DB_HOST","localhost");
     //nombre de la base de datos
-    define("DB_NAME", "consultorio_bd");
+    define("DB_NAME", "consultorio_bd1");
     //usuario de la bd
     define("DB_USERNAME","root");
     //contraseña del usuario de la bd

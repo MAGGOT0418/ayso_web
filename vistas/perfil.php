@@ -5,11 +5,10 @@ session_start(); // Iniciar sesión
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "consultorio_bd3";
+$dbname = "consultorio_bd1";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
@@ -20,10 +19,8 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Obtener el ID del usuario desde la sesión
 $id_usuario = $_SESSION['id_usuario'];
 
-// Consultar los datos del usuario
 $sql = "SELECT nombre, correo, fecha_nacimiento, direccion FROM usuarios WHERE id_usuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $id_usuario);
@@ -37,12 +34,45 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// Consultar el historial médico
 $sql_historial_medico = "SELECT diagnostico, tratamiento, fecha FROM historial_medico WHERE id_paciente = ?";
 $stmt = $conn->prepare($sql_historial_medico);
 $stmt->bind_param('i', $id_usuario);
 $stmt->execute();
 $historial_medico = $stmt->get_result();
+
+$sql_proximas_citas = "
+    SELECT 
+        citas.id_cita,
+        citas.fecha_cita, 
+        citas.hora_cita, 
+        servicios.nombre_servicio, 
+        citas.estado 
+    FROM 
+        citas 
+    JOIN 
+        servicios ON citas.id_servicio = servicios.id_servicio 
+    WHERE 
+        citas.id_paciente = ? 
+        AND citas.fecha_cita >= CURDATE() 
+        AND citas.estado != 'Cancelada'  -- Excluir las citas canceladas
+    ORDER BY 
+        citas.fecha_cita ASC
+";
+$stmt = $conn->prepare($sql_proximas_citas);
+$stmt->bind_param('i', $id_usuario);
+$stmt->execute();
+$proximas_citas = $stmt->get_result();
+
+if (isset($_GET['cancelar_cita'])) {
+    $id_cita = $_GET['cancelar_cita'];
+    $sql_cancelar = "UPDATE citas SET estado = 'Cancelada' WHERE id_cita = ? AND id_paciente = ?";
+    $stmt = $conn->prepare($sql_cancelar);
+    $stmt->bind_param('ii', $id_cita, $id_usuario);
+    $stmt->execute();
+
+    header('Location: perfil.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +85,7 @@ $historial_medico = $stmt->get_result();
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/footer.css"> 
+    <link rel="stylesheet" href="../assets/css/footer.css">
 </head>
 
 <body>
@@ -87,7 +117,6 @@ $historial_medico = $stmt->get_result();
             </ul>
             <div class="d-flex">
                 <?php if (isset($_SESSION['id_usuario'])): ?>
-                    <!-- Mostrar el círculo con la inicial del nombre del usuario -->
                     <?php $initial = strtoupper(substr($_SESSION['nombre'], 0, 1)); ?>
                     <div class="dropdown">
                         <button class="btn" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -139,6 +168,41 @@ $historial_medico = $stmt->get_result();
                             <?php endwhile; ?>
                         </ul>
                     </div>
+                    <div class="profile-section">
+                        <h2 class="h4 mb-3">Próximas Citas</h2>
+                        <?php if ($proximas_citas->num_rows > 0): ?>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Servicio</th>
+                                        <th>Estado</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($row = $proximas_citas->fetch_assoc()): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($row['fecha_cita']); ?></td>
+                                            <td><?= htmlspecialchars($row['hora_cita']); ?></td>
+                                            <td><?= htmlspecialchars($row['nombre_servicio']); ?></td>
+                                            <td><?= htmlspecialchars($row['estado']); ?></td>
+                                            <td>
+                                                <?php if ($row['estado'] != 'Cancelada'): ?>
+                                                    <a href="perfil.php?cancelar_cita=<?= $row['id_cita']; ?>" class="btn btn-danger btn-sm">Cancelar</a>
+                                                <?php else: ?>
+                                                    <span class="text-muted">Cita cancelada</span>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endwhile; ?>
+                                </tbody>
+                            </table>
+                        <?php else: ?>
+                            <p>No tienes citas próximas.</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,9 +248,10 @@ $historial_medico = $stmt->get_result();
         </div>
     </div>
 </footer>
-    <script src="../js/loginmod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
 </html>
+
 

@@ -55,7 +55,7 @@ if (isset($_SESSION['id_usuario'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <div class="sidebar">
-        <h2 class="text-center mb-4">ASYO Admin</h2>
+        <h2 class="text-center mb-4">AYSO Admin</h2>
         <nav class="sidebar-nav">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -65,7 +65,7 @@ if (isset($_SESSION['id_usuario'])) {
                     <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                    <a class="nav-link " href="resumen_financiero.php"><i class="fas fa-user-md"></i> Finanzas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>

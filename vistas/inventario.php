@@ -40,7 +40,7 @@ if (isset($_SESSION['id_usuario'])) {
 <body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="sidebar">
-        <h2 class="text-center mb-4">ASYO Admin</h2>
+        <h2 class="text-center mb-4">AYSO Admin</h2>
         <nav class="sidebar-nav">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -50,7 +50,7 @@ if (isset($_SESSION['id_usuario'])) {
                     <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                    <a class="nav-link " href="resumen_financiero.php"><i class="fas fa-user-md"></i> Finanzas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
@@ -169,7 +169,6 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
 
-    <!-- Modal para actualizar servicio -->
     <div class="modal fade" id="modalActualizarServicio" tabindex="-1" role="dialog"
         aria-labelledby="modalActualizarServicioLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -251,7 +250,7 @@ if (isset($_SESSION['id_usuario'])) {
                 url: '../ajax/servicio.php?op=agregarServicio',
                 type: 'POST',
                 data: servicioData,
-                success: function (response) {
+                success: function(response) {
                     const res = JSON.parse(response);
                     if (res.status === 'success') {
                         alert(res.message);
@@ -261,7 +260,7 @@ if (isset($_SESSION['id_usuario'])) {
                         alert(res.message);
                     }
                 },
-                error: function () {
+                error: function() {
                     alert('Error al insertar el servicio.');
                 }
             });
@@ -271,16 +270,16 @@ if (isset($_SESSION['id_usuario'])) {
             $.ajax({
                 url: '../ajax/servicio.php?op=listarServicios',
                 type: 'GET',
-                success: function (response) {
+                success: function(response) {
                     $('#serviciosTable tbody').html(response);
                 },
-                error: function () {
+                error: function() {
                     alert('Error al cargar los servicios.');
                 }
             });
         }
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             cargarServicios();
         });
 
@@ -294,7 +293,7 @@ if (isset($_SESSION['id_usuario'])) {
                 url: '../ajax/inventario.php?op=insertarProducto',
                 type: 'POST',
                 data: productoData,
-                success: function (response) {
+                success: function(response) {
                     const res = JSON.parse(response);
                     if (res.status === 'success') {
                         alert(res.message);
@@ -304,7 +303,7 @@ if (isset($_SESSION['id_usuario'])) {
                         alert(res.message);
                     }
                 },
-                error: function () {
+                error: function() {
                     alert('Error al insertar el producto.');
                 }
             });
@@ -314,10 +313,10 @@ if (isset($_SESSION['id_usuario'])) {
             $.ajax({
                 url: '../ajax/inventario.php?op=listar',
                 type: 'GET',
-                success: function (response) {
+                success: function(response) {
                     $('#inventariototal tbody').html(response);
                 },
-                error: function () {
+                error: function() {
                     alert('Error al cargar los productos.');
                 }
             });
@@ -327,8 +326,10 @@ if (isset($_SESSION['id_usuario'])) {
             $.ajax({
                 url: '../ajax/servicio.php?op=obtenerServicio',
                 type: 'POST',
-                data: { id_servicio: id_servicio },
-                success: function (response) {
+                data: {
+                    id_servicio: id_servicio
+                },
+                success: function(response) {
                     const servicio = JSON.parse(response);
                     if (servicio) {
                         $('#id_servicio').val(servicio.id_servicio);
@@ -340,38 +341,39 @@ if (isset($_SESSION['id_usuario'])) {
                         alert('No se pudieron obtener los datos del servicio.');
                     }
                 },
-                error: function () {
+                error: function() {
                     alert('Error al obtener los datos del servicio.');
                 }
             });
         }
+
         function actualizarServicio() {
             const datos = $('#formActualizarServicio').serialize();
             $.ajax({
                 url: '../ajax/servicio.php?op=actualizarServicio',
                 type: 'POST',
                 data: datos,
-                success: function (response) {
+                success: function(response) {
                     alert(response);
                     $('#modalActualizarServicio').modal('hide');
                     $.ajax({
                         url: '../ajax/servicio.php?op=listarServicios',
                         type: 'GET',
-                        success: function (response) {
+                        success: function(response) {
                             $('#serviciosTable tbody').html(response);
                         }
                     });
                 },
-                error: function () {
+                error: function() {
                     alert('Error al actualizar el servicio.');
                 }
             });
         }
-        $(document).ready(function () {
+        $(document).ready(function() {
             $.ajax({
                 url: '../ajax/servicio.php?op=listarServicios',
                 type: 'GET',
-                success: function (response) {
+                success: function(response) {
                     $('#serviciosTable tbody').empty();
                     if (response.trim().length > 0) {
                         $('#serviciosTable tbody').html(response);
@@ -379,35 +381,38 @@ if (isset($_SESSION['id_usuario'])) {
                         $('#serviciosTable tbody').html('<tr><td colspan="4">No se encontraron servicios</td></tr>');
                     }
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.error('Error al cargar los servicios:', error);
                     $('#serviciosTable tbody').html('<tr><td colspan="4">Error al cargar los datos</td></tr>');
                 }
             });
         });
-        $(document).ready(function () {
+        $(document).ready(function() {
             $.ajax({
                 url: '../ajax/inventario.php?op=listar',
                 type: 'GET',
-                success: function (response) {
+                success: function(response) {
                     $('#inventariototal tbody').html(response);
                 }
             });
         });
+
         function eliminarServicio(id_servicio) {
             if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
                 $.ajax({
                     url: '../ajax/inventario.php?op=eliminarServicio',
                     type: 'POST',
-                    data: { id_servicio: id_servicio },
-                    success: function (response) {
+                    data: {
+                        id_servicio: id_servicio
+                    },
+                    success: function(response) {
                         const res = JSON.parse(response);
                         if (res.status === 'success') {
                             alert(res.message);
                             $.ajax({
                                 url: '../ajax/servicio.php?op=listarServicios',
                                 type: 'GET',
-                                success: function (response) {
+                                success: function(response) {
                                     $('#inventariototal tbody').html(response);
                                 }
                             });
@@ -415,26 +420,29 @@ if (isset($_SESSION['id_usuario'])) {
                             alert(res.message);
                         }
                     },
-                    error: function () {
+                    error: function() {
                         alert('Error en la solicitud.');
                     }
                 });
             }
         }
+
         function eliminarProducto(id_producto) {
             if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
                 $.ajax({
                     url: '../ajax/inventario.php?op=eliminar',
                     type: 'POST',
-                    data: { id_producto: id_producto },
-                    success: function (response) {
+                    data: {
+                        id_producto: id_producto
+                    },
+                    success: function(response) {
                         const res = JSON.parse(response);
                         if (res.status === 'success') {
                             alert(res.message);
                             $.ajax({
                                 url: '../ajax/inventario.php?op=listar',
                                 type: 'GET',
-                                success: function (response) {
+                                success: function(response) {
                                     $('#inventariototal tbody').html(response);
                                 }
                             });
@@ -442,26 +450,30 @@ if (isset($_SESSION['id_usuario'])) {
                             alert(res.message);
                         }
                     },
-                    error: function () {
+                    error: function() {
                         alert('Error en la solicitud.');
                     }
                 });
             }
         }
+
         function actualizarStock(id_producto, cantidad) {
             if (cantidad > 0) {
                 $.ajax({
                     url: '../ajax/inventario.php?op=actualizarstock',
                     type: 'POST',
-                    data: { id_producto: id_producto, cantidad: cantidad },
-                    success: function (response) {
+                    data: {
+                        id_producto: id_producto,
+                        cantidad: cantidad
+                    },
+                    success: function(response) {
                         const res = JSON.parse(response);
                         if (res.status === 'success') {
                             alert(res.message);
                             $.ajax({
                                 url: '../ajax/inventario.php?op=listar',
                                 type: 'GET',
-                                success: function (response) {
+                                success: function(response) {
                                     $('#inventariototal tbody').html(response);
                                 }
                             });
@@ -469,7 +481,7 @@ if (isset($_SESSION['id_usuario'])) {
                             alert(res.message);
                         }
                     },
-                    error: function () {
+                    error: function() {
                         alert('Error al realizar la solicitud.');
                     }
                 });
@@ -477,6 +489,7 @@ if (isset($_SESSION['id_usuario'])) {
                 alert("Por favor ingresa una cantidad válida.");
             }
         }
+
         function mostrarActualizarStock(id_producto) {
             const cantidad = prompt("Ingresa la cantidad que deseas añadir al stock:");
             if (cantidad) {

@@ -106,7 +106,7 @@ if (isset($_POST['from'])) {
 <body>
     <div class="d-flex">
         <div class="sidebar">
-            <h2 class="text-center mb-4">ASYO Admin</h2>
+            <h2 class="text-center mb-4">AYSO Admin</h2>
             <nav class="sidebar-nav">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -116,7 +116,7 @@ if (isset($_POST['from'])) {
                         <a class="nav-link active" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                        <a class="nav-link " href="resumen_financiero.php"><i class="fas fa-user-md"></i> Finanzas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
@@ -280,7 +280,7 @@ if (isset($_POST['from'])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Agregar nueva cita</h4>
+                    <h4 class="modal-title" id="myModalLabel">Agregar nuevo evento</h4>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
@@ -296,7 +296,7 @@ if (isset($_POST['from'])) {
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
                         <br>
-                        <label for="tipo">Servicio</label>
+                        <label for="tipo">Tipo de evento</label>
                         <select class="form-control" name="class" id="tipo">
                             <option value="Limpieza">Limpieza</option>
                             <option value="Extracciones">Extracciones</option>
@@ -305,10 +305,10 @@ if (isset($_POST['from'])) {
                             <option value="Protesis dental">Protesis dental</option>
                         </select>
                         <br>
-                        <label for="title">Nombre</label>
+                        <label for="title">Título</label>
                         <input type="text" required autocomplete="off" name="title" class="form-control" id="title" placeholder="Introduce un título">
                         <br>
-                        <label for="body">Comentarios</label>
+                        <label for="body">Evento</label>
                         <textarea id="body" name="event" required class="form-control" rows="3"></textarea>
 
                         <script type="text/javascript">

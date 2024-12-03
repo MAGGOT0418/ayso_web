@@ -13,7 +13,7 @@ if (isset($_SESSION['id_usuario'])) {
     $rol = null; // No está logueado
     header("location: ../index.php");
 }
-?>
+?>  
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,127 +25,12 @@ if (isset($_SESSION['id_usuario'])) {
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Estilos para el modal */
-        .modal-content {
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-        }
-
-        .modal-header {
-            background: #3a7bd5;
-            color: white;
-            border-radius: 8px 8px 0 0;
-            padding: 15px;
-        }
-
-        .modal-title {
-            font-weight: bold;
-        }
-
-        .modal-header .close {
-            color: white;
-            opacity: 0.8;
-        }
-
-        .modal-header .close:hover {
-            opacity: 1;
-        }
-
-        /* Estilos para el formulario */
-        .form-control {
-            border: 2px solid #e0e0e0;
-            border-radius: 4px;
-            padding: 8px 12px;
-            height: auto;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 8px rgba(3, 202, 252, 0.2);
-        }
-
-        .form-label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        /* Estilos para radio buttons y checkboxes */
-        .radio label,
-        .checkbox label {
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .radio input[type="radio"],
-        .checkbox input[type="checkbox"] {
-            margin-left: -25px;
-            margin-top: 4px;
-        }
-
-        /* Estilos para el botón de submit */
-        .btn-primary {
-
-            border: none;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-perfil);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Estilos para los grupos de campos */
-        .mb-3 {
-            margin-bottom: 20px;
-        }
-
-        /* Estilos para textarea */
-        textarea.form-control {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        /* Estilos para el botón de cerrar */
-        .modal-header .close {
-            margin-top: -2px;
-            font-size: 24px;
-        }
-
-        /* Estilos para el modal grande */
-        .modal-lg {
-            width: 80%;
-            max-width: 1000px;
-        }
-
-        /* Estilos para el cuerpo del modal */
-        .modal-body {
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .modal-lg {
-                width: 95%;
-                margin: 10px auto;
-            }
-
-            .row [class*="col-"] {
-                margin-bottom: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/registro_pacientes.css">
 </head>
 
 <body>
     <div class="sidebar">
-        <h2 class="text-center mb-4">ASYO Admin</h2>
+        <h2 class="text-center mb-4">AYSO Admin</h2>
         <nav class="sidebar-nav">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -155,7 +40,7 @@ if (isset($_SESSION['id_usuario'])) {
                     <a class="nav-link" href="calendario.php"><i class="fas fa-calendar-alt"></i> Citas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Doctores</a>
+                    <a class="nav-link " href="resumen_financiero.php"><i class="fas fa-user-md"></i> Finanzas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="registro_pacientes.php"><i class="fas fa-users"></i> Pacientes</a>
@@ -172,7 +57,7 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
     <div class="main-content">
-        <h1 class="mb-4">Usuarios</h1>
+        <h1 class="mb-4">Dashboard</h1>
         <div class="row mt-6">
             <div class="col-md-12 mb-4">
                 <div class="card">
@@ -191,7 +76,6 @@ if (isset($_SESSION['id_usuario'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Aquí se agregarán las filas dinámicamente -->
                             </tbody>
                         </table>
                     </div>
@@ -200,7 +84,6 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </div>
 
-    <!-- Modal para mostrar el formulario -->
     <div class="modal fade" id="modalRegistrarPaciente" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarPacienteLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -209,7 +92,6 @@ if (isset($_SESSION['id_usuario'])) {
                     <h4 class="modal-title" id="modalRegistrarPacienteLabel">Registrar Paciente - Historial Médico</h4>
                 </div>
                 <div class="modal-body">
-                    <!-- Formulario de registro paciente -->
                     <form id="formRegistrarPaciente" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -313,27 +195,22 @@ if (isset($_SESSION['id_usuario'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-        // Función para abrir el modal con el formulario
         function mostrarFormularioRegistro() {
-            $('#modalRegistrarPaciente').modal('show'); // Usamos el método de Bootstrap 3 para mostrar el modal
+            $('#modalRegistrarPaciente').modal('show'); 
         }
         $(document).ready(function() {
-            // Manejar el envío del formulario con AJAX
             $('#formRegistrarPaciente').submit(function(e) {
-                e.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
+                e.preventDefault(); 
 
-                // Obtener los datos del formulario
                 var formData = $(this).serialize();
 
-                // Enviar los datos al servidor mediante AJAX
                 $.ajax({
-                    url: 'registropaciente.php',
+                    url: '../ajax/registropaciente.php',
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-                        // Mostrar un mensaje de éxito o redirigir, según sea necesario
                         alert('Paciente registrado correctamente');
-                        $('#modalRegistrarPaciente').modal('hide'); // Cerrar el modal
+                        $('#modalRegistrarPaciente').modal('hide'); 
                     },
                     error: function() {
                         alert('Hubo un error al registrar el paciente. Intenta de nuevo.');

@@ -55,7 +55,6 @@ if (isset($_SESSION['id_usuario'])) {
             </ul>
             <div class="d-flex">
                 <?php if (isset($_SESSION['id_usuario'])): ?>
-                    <!-- Mostrar el círculo con la inicial del nombre del usuario -->
                     <?php $initial = strtoupper(substr($_SESSION['nombre'], 0, 1)); ?>
                     <div class="dropdown">
                         <button class="btn" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -170,16 +169,7 @@ if (isset($_SESSION['id_usuario'])) {
                             más daño.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h2>Prótesis Dentales</h2>
-                        <img src="https://www.fuentedelangel.com/wp-content/uploads/2022/11/protesis-dentales-fijas.jpg"
-                            alt="Prótesis Dentales">
-                        <p>Son dispositivos diseñados para reemplazar dientes perdidos. Las prótesis pueden ser
-                            parciales o completas y están diseñadas para mejorar la función masticatoria y la estética
-                            facial.</p>
-                    </div>
-                </div>
+                
             </div>
         </section>
     </div>
@@ -225,10 +215,7 @@ if (isset($_SESSION['id_usuario'])) {
     </footer>
     </footer>
     <script src="../js/loginmod.js"></script>
-    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
