@@ -1,29 +1,22 @@
 <?php 
-// Incluimos los parámetros globales de configuración
 require_once "global.php";
 
-// Configuración para conexión a la base de datos
 $servidor = DB_HOST;
 $usuario = DB_USERNAME;
 $pass = DB_PASSWORD;
 $bd = DB_NAME;
 
-// Conexión a la base de datos
 $conexion = new mysqli($servidor, $usuario, $pass, $bd);
 
-// Definimos el conjunto de caracteres para la conexión
 $conexion->set_charset(DB_ENCODE);
 
-// Verificamos errores en la conexión
 if ($conexion->connect_errno) {
     printf("Falló conexión a la base de datos: %s\n", $conexion->connect_error);
     exit();
 }
 
-// Definimos la URL base del proyecto
 $base_url = "http://localhost/AYSO_WEB/vistas/";
 
-// Si no existen las funciones, las definimos
 if (!function_exists('ejecutarConsulta')) {
     function ejecutarConsulta($sql) {
         global $conexion;
@@ -42,7 +35,7 @@ if (!function_exists('ejecutarConsulta')) {
             die("Error en la consulta SQL: " . $conexion->error);
         }
         $row = $query->fetch_assoc();
-        return $row ? $row : null; // Retorna null si no hay filas
+        return $row ? $row : null; 
     }
     
 

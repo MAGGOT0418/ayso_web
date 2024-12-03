@@ -1,7 +1,7 @@
 <?php
-require_once "../modelos/Agenda.php"; // Asegúrate de que la ruta y el nombre del modelo sean correctos
+require_once "../modelos/Agenda.php"; 
 
-$agenda = new Agenda(); // Instancia de la clase Agenda
+$agenda = new Agenda(); 
 
 $id = isset($_POST["id"]) ? limpiarCadena($_POST["id"]) : "";
 $title = isset($_POST["title"]) ? limpiarCadena($_POST["title"]) : "";
@@ -16,15 +16,12 @@ $final_normal = isset($_POST["final_normal"]) ? limpiarCadena($_POST["final_norm
 
 switch ($_GET["op"]) {
     case 'contarHoy':
-        // Llamamos al método Hoycitas() que cuenta las citas para el día actual
         $rspta = $agenda->citasHoy();
 
-        // Retornamos la respuesta en formato JSON
         echo json_encode(['total_citas' => $rspta]);
 
         break;
 
-        // Puedes agregar más casos aquí según tus necesidades
     case 'listarProximas':
 
         $rspta = $agenda->listarProximas();
@@ -40,7 +37,6 @@ switch ($_GET["op"]) {
             }
         }
 
-        // Si no hay datos, envía un arreglo vacío
         echo json_encode($data);
         break;
     

@@ -30,7 +30,6 @@ class Usuarios
 
     public function obtenerUsuario($id_usuario)
     {
-        // Usar prepared statements para prevenir SQL injection
         $sql = "SELECT u.*, hm.* 
                 FROM usuarios u 
                 LEFT JOIN historial_medico hm ON u.id_usuario = hm.id_usuario 
@@ -44,7 +43,6 @@ class Usuarios
         if ($resultado && $resultado->num_rows > 0) {
             $datos = $resultado->fetch_assoc();
 
-            // Obtener las condiciones médicas si existen
             $sql_condiciones = "SELECT condicion FROM condiciones_medicas WHERE id_usuario = ?";
             $stmt_condiciones = $this->conexion->prepare($sql_condiciones);
             $stmt_condiciones->bind_param("i", $id_usuario);

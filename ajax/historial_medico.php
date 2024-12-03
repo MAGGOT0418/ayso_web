@@ -4,7 +4,6 @@ require_once "../modelos/HistorialMedico.php";
 
 $historialMedico = new HistorialMedico();
 
-// Recuperamos los valores enviados por POST
 $idHistorial = isset($_POST["idHistorial"]) ? limpiarCadena($_POST["idHistorial"]) : "";
 $idPaciente = isset($_POST["idPaciente"]) ? limpiarCadena($_POST["idPaciente"]) : "";
 $idCita = isset($_POST["idCita"]) ? limpiarCadena($_POST["idCita"]) : "";
@@ -17,7 +16,6 @@ switch ($_GET["op"]) {
         $rspta = $historialMedico->listarHistorialMedico();
         $data = array();
     
-        // Generamos el array de datos
         while ($row = $rspta->fetch_assoc()) {  
             $data[] = array(
                 "diagnostico" => $row['diagnostico'],
@@ -27,17 +25,14 @@ switch ($_GET["op"]) {
             );
         }
     
-        // Devolvemos el array como JSON
         echo json_encode($data);
         break;
 
     case 'guardaryeditar':
-        // Validamos el acceso solo a usuarios logueados en el sistema
         if (!isset($_SESSION["nombre"])) {
             header("Location: ../vistas/login.html");
             exit();
         } else {
-            // Validación de archivo de imagen
             if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) {
                 $imagen = $_POST["imagenactual"];
             } else {
@@ -48,10 +43,8 @@ switch ($_GET["op"]) {
                 }
             }
 
-            // Si no se desea encriptar la contraseña
             $clave = $_POST["clave"];
 
-            // Guardar o editar usuario según si el id está vacío o no
             if (empty($idusuario)) {
                 $rspta = $usuario->insertar(
                     $nombre,
@@ -62,7 +55,7 @@ switch ($_GET["op"]) {
                     $email,
                     $cargo,
                     $login,
-                    $clave, // Aquí se inserta la clave sin encriptar
+                    $clave, 
                     $imagen,
                     $_POST['permiso']
                 );
@@ -78,7 +71,7 @@ switch ($_GET["op"]) {
                     $email,
                     $cargo,
                     $login,
-                    $clave, // Aquí se actualiza la clave sin encriptar
+                    $clave,
                     $imagen,
                     $_POST['permiso']
                 );

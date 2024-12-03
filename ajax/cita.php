@@ -4,7 +4,6 @@ require_once "../modelos/Citas.php";
 
 $citas = new Citas();
 
-// Recuperamos los valores enviados por POST
 $id_cita = isset($_POST["id_cita"]) ? limpiarCadena($_POST["id_cita"]) : "";
 $idPaciente = isset($_POST["idPaciente"]) ? limpiarCadena($_POST["idPaciente"]) : "";
 $idServicio = isset($_POST["idServicio"]) ? limpiarCadena($_POST["idServicio"]) : "";

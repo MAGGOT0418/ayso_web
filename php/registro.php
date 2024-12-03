@@ -13,15 +13,13 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener datos del formulario
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $pass = $_POST['password'];
     $direccion = $_POST['direccion'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $id_rol = 3; // Rol predeterminado: Paciente (id_rol=3)
+    $id_rol = 3;
 
-    // Verificar si el correo ya existe
     $sql_check = "SELECT * FROM usuarios WHERE correo = ?";
     $stmt = $conn->prepare($sql_check);
     $stmt->bind_param("s", $email);
@@ -31,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result_check->num_rows > 0) {
         echo "El correo electrónico ya está registrado. Intenta con otro.";
     } else {
-        // Insertar nuevo usuario
         $sql_insert = "INSERT INTO usuarios (nombre, correo, password, direccion, fecha_nacimiento, id_rol) 
                        VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql_insert);
