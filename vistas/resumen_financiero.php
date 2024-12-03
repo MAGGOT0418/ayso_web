@@ -15,7 +15,6 @@ if (!isset($conexion)) {
     die("Error: No se pudo establecer la conexión con la base de datos.");
 }
 
-// Procesar el formulario de pago
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrar_pago'])) {
     $id_cita = $_POST['id_cita'];
     $monto = $_POST['monto'];
@@ -32,18 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrar_pago'])) {
     }
     $stmt->close();
     
-    // Redirigir para evitar reenvíos del formulario
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
 
-// Mostrar mensaje si existe y luego eliminarlo
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
     unset($_SESSION['mensaje']);
 }
 
-// Consulta para obtener los pagos
 $sql = "SELECT p.id_pago, u.nombre AS nombre_paciente, s.nombre_servicio AS nombre_servicio, 
                p.monto, p.metodo_pago, p.fecha_pago, c.fecha_cita
         FROM pagos p
@@ -57,7 +53,6 @@ if (!$result) {
     die("Error en la consulta: " . $conexion->error);
 }
 
-// Preparar datos para las gráficas
 $servicios = [];
 $montos = [];
 $metodosPago = ['Efectivo' => 0, 'Tarjeta' => 0, 'Transferencia' => 0];
@@ -79,7 +74,6 @@ if ($result->num_rows > 0) {
     mysqli_data_seek($result, 0);
 }
 
-// Consulta para obtener la lista de citas
 $sql_citas = "SELECT c.id_cita, CONCAT(c.fecha_cita, ' - ', u.nombre) AS info_cita 
               FROM citas c 
               JOIN usuarios u ON c.id_paciente = u.id_usuario";

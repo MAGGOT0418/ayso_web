@@ -1,17 +1,10 @@
 <?php 
+include "../config/conexion.php";
+
 session_start(); // Iniciar sesión
 
 // Conectar a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consultorio_bd1";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['id_usuario'])) {
@@ -22,7 +15,7 @@ if (!isset($_SESSION['id_usuario'])) {
 $id_usuario = $_SESSION['id_usuario'];
 
 $sql = "SELECT nombre, correo, fecha_nacimiento, direccion FROM usuarios WHERE id_usuario = ?";
-$stmt = $conn->prepare($sql);
+$stmt = $conexion->prepare($sql);
 $stmt->bind_param('i', $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -35,7 +28,7 @@ if ($result->num_rows > 0) {
 }
 
 $sql_historial_medico = "SELECT diagnostico, tratamiento, fecha FROM historial_medico WHERE id_paciente = ?";
-$stmt = $conn->prepare($sql_historial_medico);
+$stmt = $conexion->prepare($sql_historial_medico);
 $stmt->bind_param('i', $id_usuario);
 $stmt->execute();
 $historial_medico = $stmt->get_result();
@@ -58,7 +51,7 @@ $sql_proximas_citas = "
     ORDER BY 
         citas.fecha_cita ASC
 ";
-$stmt = $conn->prepare($sql_proximas_citas);
+$stmt = $conexion->prepare($sql_proximas_citas);
 $stmt->bind_param('i', $id_usuario);
 $stmt->execute();
 $proximas_citas = $stmt->get_result();
@@ -66,7 +59,7 @@ $proximas_citas = $stmt->get_result();
 if (isset($_GET['cancelar_cita'])) {
     $id_cita = $_GET['cancelar_cita'];
     $sql_cancelar = "UPDATE citas SET estado = 'Cancelada' WHERE id_cita = ? AND id_paciente = ?";
-    $stmt = $conn->prepare($sql_cancelar);
+    $stmt = $conexion->prepare($sql_cancelar);
     $stmt->bind_param('ii', $id_cita, $id_usuario);
     $stmt->execute();
 
