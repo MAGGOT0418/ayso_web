@@ -1,16 +1,16 @@
 <?php
-session_start(); // Iniciar sesión
+session_start(); 
 
-// Verificar si el usuario ha iniciado sesión
+
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $rol = $_SESSION['id_rol']; 
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
     if ($rol == 3) {
         header("location: index.php");
     }
 } else {
-    $rol = null; // No está logueado
+    $rol = null; 
     header("location: ../index.php");
 }
 ?>
@@ -24,17 +24,7 @@ if (isset($_SESSION['id_usuario'])) {
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        #inventariototal {
-            text-align: center;
-        }
 
-        #inventariototal th,
-        #inventariototal td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 
 <body>

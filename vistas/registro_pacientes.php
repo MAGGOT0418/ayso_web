@@ -1,16 +1,16 @@
 <?php
-session_start(); // Iniciar sesión
+session_start(); 
 
-// Verificar si el usuario ha iniciado sesión
+
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $rol = $_SESSION['id_rol']; 
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
     if ($rol == 3) {
         header("location: index.php");
     }
 } else {
-    $rol = null; // No está logueado
+    $rol = null; 
     header("location: ../index.php");
 }
 ?>  

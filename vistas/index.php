@@ -1,13 +1,12 @@
 <?php
-session_start(); // Iniciar sesión
+session_start(); 
 
-// Verificar si el usuario ha iniciado sesión
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $rol = $_SESSION['id_rol']; 
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
 } else {
-    $rol = null; // No está logueado
+    $rol = null; 
     header("location: ../index.php");
 }
 ?>
@@ -74,7 +73,7 @@ if (isset($_SESSION['id_usuario'])) {
         </div>
     </nav>
     <div id="loginModal" class="modal"></div>
-    <!-- Carousel -->
+    
     <div id="dentalCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#dentalCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -114,7 +113,6 @@ if (isset($_SESSION['id_usuario'])) {
         </button>
     </div>
 
-    <!-- Doctor Profiles -->
     <div class="Perfil">
         <section class="doctor-profiles">
             <div class="container">

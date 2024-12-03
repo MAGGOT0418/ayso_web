@@ -1,12 +1,8 @@
 <?php 
 include "../config/conexion.php";
 
-session_start(); // Iniciar sesión
+session_start(); 
 
-// Conectar a la base de datos
-
-
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['id_usuario'])) {
     header('Location: index.php');
     exit;

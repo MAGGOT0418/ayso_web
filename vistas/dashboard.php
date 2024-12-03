@@ -1,16 +1,16 @@
 <?php
-session_start(); // Iniciar sesión
+session_start(); 
 
-// Verificar si el usuario ha iniciado sesión
+
 if (isset($_SESSION['id_usuario'])) {
-    $rol = $_SESSION['id_rol']; // Obtener el rol del usuario
+    $rol = $_SESSION['id_rol']; 
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
     if ($rol == 3) {
         header("location: index.php");
     }
 } else {
-    $rol = null; // No está logueado
+    $rol = null; 
     header("location: ../index.php");
 }
 ?>
@@ -27,27 +27,6 @@ if (isset($_SESSION['id_usuario'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        #inventariototal {
-            text-align: center;
-        }
-
-        #inventariototal th,
-        #inventariototal td {
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        #citasprox {
-            text-align: center;
-        }
-
-        #citasprox th,
-        #citasprox td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
 
 </head>
 
@@ -143,7 +122,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Aquí se agregarán las filas dinámicamente -->
+                                
                             </tbody>
                         </table>
                     </div>
@@ -163,7 +142,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Aquí se agregarán las filas dinámicamente -->
+                                
                             </tbody>
                         </table>
 

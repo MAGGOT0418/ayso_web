@@ -92,16 +92,7 @@ $result_citas = ejecutarConsulta($sql_citas);
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <style>
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .chart-container {
-            height: 300px;
-            margin-bottom: 20px;
-        }
-    </style>
+
 </head>
 <body>
     <div class="wrapper">
@@ -259,7 +250,7 @@ $result_citas = ejecutarConsulta($sql_citas);
     </div>
 
     <script>
-        // Gráfico de barras
+        // el grafico de barras 
         var ctxBar = document.getElementById('barChart').getContext('2d');
         var barChart = new Chart(ctxBar, {
             type: 'bar',
@@ -284,7 +275,7 @@ $result_citas = ejecutarConsulta($sql_citas);
             }
         });
 
-        // Gráfico circular
+        // grafico redondo
         var ctxPie = document.getElementById('pieChart').getContext('2d');
         var pieChart = new Chart(ctxPie, {
             type: 'pie',

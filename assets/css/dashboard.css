@@ -184,3 +184,22 @@ body {
     color: #dc3545;
 }
 
+#inventariototal {
+    text-align: center;
+}
+/* Estilos del inventario*/
+#inventariototal th,
+#inventariototal td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#citasprox {
+    text-align: center;
+}
+
+#citasprox th,
+#citasprox td {
+    text-align: center;
+    vertical-align: middle;
+}

@@ -1,17 +1,15 @@
 <?php 
 session_start();
 
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php"); 
     exit();
 }
 
-// Variables de sesión
 $rol = $_SESSION['id_rol'] ?? null;
 $nombre = $_SESSION['nombre'] ?? '';
 $correo = $_SESSION['correo'] ?? '';
-$id_paciente = $_SESSION['id_usuario'] ?? ''; // Asegúrate de que la variable sea consistente con el campo de la tabla
+$id_paciente = $_SESSION['id_usuario'] ?? ''; 
 ?>
 <!DOCTYPE html>
 <html lang="es">
